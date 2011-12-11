@@ -1,0 +1,17 @@
+
+	<tr>
+		<td><%= game.name %></td>
+		<td><%= game.at_bats %></td>
+		<td><%= game.runs %></td>
+		<td><%= game.hits %></td>
+		<td><%= game.singles %></td>
+		<td><%= game.doubles %></td>
+		<td><%= game.triples %></td>
+		<td><%= game.homeruns %></td>
+		<td><%= game.rbis %></td>
+		<td><%= game.walks %></td>
+		<td><%= game.total_bases %></td>
+		<td><%= game.hits / game.at_bats.to_f %></td>
+		<td><%= (game.hits + game.walks) / (game.total_bases + game.walks.to_f) %></td>
+		<td><%= game.total_bases / game.at_bats.to_f %></td>
+	</tr>

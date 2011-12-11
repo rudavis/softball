@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hits: 1
+  rbis: 1
+  at_bats: 1
+  walks: 1
+  name: MyString
+  player: 
+
+two:
+  hits: 1
+  rbis: 1
+  at_bats: 1
+  walks: 1
+  name: MyString
+  player: 

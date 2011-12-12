@@ -1,5 +1,10 @@
 class GamesController < ApplicationController
-    def create
+  def create
+    @player = Player.find(params[:player_id])
+    @game = @player.games.create(params[:game])
+    redirect_to player_path(@player)
+
+=begin
     @player = Player.find(params[:player_id])
     @game = @player.games.new(params[:game])
     respond_to do |format|
@@ -12,6 +17,6 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
-  
 end

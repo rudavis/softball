@@ -43,30 +43,9 @@
 	</div>
 </div>
 <div class="games">
-<h2>Games:</h2>
-<table border ="3px"> 
-	<tr>
-		<td><b>Game Name:</b></td>
-		<td><b>At Bats:</b></td>
-		<td><b>Runs:</b></td>
-		<td><b>Hits:</b></td>
-		<td><b>Singles:</b></td>
-		<td><b>Doubles:</b></td>
-		<td><b>Triples:</b></td>
-		<td><b>Homeruns:</b></td>
-		<td><b>RBIs:</b></td>
-		<td><b>Walks:</b></td>
-		<td><b>Game Total Bases:</b></td>
-		<td><b>Game Batting Average:</b></td>
-		<td><b>Game On Base %:</b></td>
-		<td><b>Game Slugging %:</b></td>
-	</tr>
-<%= render @player.games %>
-
-<%= form_for ([@player, @player.games.build]) do |f| %>
-	<%= render :partial => 'games/form', :locals => {:f => f } %>
-	<%= f.error_messages %>
-<% end %>
+	<%= render "games/header" %>
+	<%= render @player.games %>
+	<%= render "games/form" %>
 </div>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |

@@ -2,33 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.player_card {
+.player-card {
 	background-image: url('/images/tops_template.png');
 	width: 268px;
 	height: 372px;
 	float:left;
+	margin:10px;
 }
-.player_picture {
-	position: absolute;
-	top: 98px;
-	left: 32px;
+.player-picture {
+	margin-left:25px;
+	margin-top:83px;
 	width: 220px;
 	height: 248px;
 }
-.player_name {
-	position: absolute;
-	top: 350px;
-	left: 32px;
+.player-name {
+	margin-top:0px;
+	margin-left:25px;
 	background-color: #FA4600;
 	width: 220px;
 	height: 16px;
 	text-align: center;
 }
-.player_stats {
-	margin-left: 300px;
+
+.player-stats {
+	margin: 10px 0px 0px 295px;
+}
+h2 {
+	padding:10px 0px 10px 0px;
+}
+.stats-table td, .stats-table th  {
+	border: 1px solid #fff;
+	padding:3px;
+	background-color:#CDCDCD;
 }
 
 .games{
 	clear:both;
-	padding-top: 5px;
+	padding:5px;
 }

@@ -11,6 +11,7 @@ class Player < ActiveRecord::Base
   def hits
     games.all.sum(&:hits)
   end  
+#Not going to use singles.
   def singles
     games.all.sum(&:singles)
   end  
@@ -29,13 +30,21 @@ class Player < ActiveRecord::Base
   def walks
     games.all.sum(&:walks)
   end  
+#Not going to use total bases  
   def total_bases
     games.all.sum(&:total_bases)
   end
+  def num_games
+    games.count
+  end
+  def batting_average
+      (games.all.sum(&:hits) + games.all.sum(&:doubles) + games.all.sum(&:triples) + games.all.sum(&:homeruns)) / games.all.sum(&:at_bats).to_f
+  end
+  def slugging_percentage
+      (games.all.sum(&:hits) + games.all.sum(&:doubles) * 2 + games.all.sum(&:triples) * 3 + games.all.sum(&:homeruns) * 4) / games.all.sum(&:at_bats).to_f
+  end
   
-#		<td><%= @player.batting_average %></td>
-#		<td><%= @player.on_base_percentage %></td>
-#		<td><%= @player.slugging_percentage %></td>
+#TODO On Baes %
   
   
 end

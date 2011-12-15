@@ -1,48 +1,17 @@
-<p id="notice"><%= notice %></p>
 <div class="player">
-	<div class="player_card">
-		<img class="player_picture" src="/images/rosie.png" />
-		<div class="player_name">
+	<div class="player-card">
+		<img class="player-picture" src="/images/rosie.png" />
+		<div class="player-name">
 			<%= @player.name %>
 		</div>
 	</div>
-	<div class="player_stats">
+	<div class="player-stats">
 		<h2>Player Stats:</h2>
-		<table border ="3px" width="30%"> 
-			<tr>
-				<td><b>Total At Bats:</b></td>
-				<td><b>Total Runs:</b></td>
-				<td><b>Total Hits:</b></td>
-				<td><b>Total Singles:</b></td>
-				<td><b>Total Doubles:</b></td>
-				<td><b>Total Triples:</b></td>
-				<td><b>Total Homeruns:</b></td>
-				<td><b>Total RBIs:</b></td>
-				<td><b>Total Walks:</b></td>
-				<td><b>Total Bases:</b></td>
-				<td><b>Batting Average:</b></td>
-				<td><b>On Base %:</b></td>
-				<td><b>Slugging %:</b></td>
-			</tr>
-			<tr>
-				<td><%= @player.at_bats %></td>
-				<td><%= @player.runs %></td>
-				<td><%= @player.hits %></td>
-				<td><%= @player.singles %></td>
-				<td><%= @player.doubles %></td>
-				<td><%= @player.triples %></td>
-				<td><%= @player.homeruns %></td>
-				<td><%= @player.rbis %></td>
-				<td><%= @player.walks %></td>
-				<td><%= @player.total_bases %></td>
-				<td><%= @player.hits / @player.at_bats.to_f %></td>
-				<td><%= (@player.hits + @player.walks) / (@player.total_bases + @player.walks.to_f) %></td>
-				<td><%= @player.total_bases / @player.at_bats.to_f %></td>
-			</tr>
-		</table>
+		<%= render :partial => "stats" %>
 	</div>
 </div>
 <div class="games">
+	<p id="notice"><%= notice %></p>
 	<%= render "games/header" %>
 	<%= render @player.games %>
 	<%= render "games/form" %>

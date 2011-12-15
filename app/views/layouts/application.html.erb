@@ -3,12 +3,17 @@
 <head>
   <title>Softball</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "jquery.dataTables" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="container">
+		<div id="header">
+			<h1>MAKE ME A BASEBALL CARD</h1>
+		</div>
+		<div id="main-content">
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>

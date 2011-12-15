@@ -1,0 +1,33 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background-image: url('/images/baseball_diamond.png');
+	background-size: cover;
+}
+#container {
+	width:990px;
+	margin:0 auto;
+}
+#header {
+	background-color: rgba(239,239,239,0.5);
+	display:block;
+	min-height:100px;
+	margin-top:75px;
+	border-radius: 8px;
+	box-shadow:0px 0px 24px 8px rgba(255,255,255,0.5);
+}
+h1{
+	color:#fff;
+	font-size:48px;
+	padding:40px 0px 0px 5px;
+}
+#main-content {
+	background-color: rgba(245,245,245,0.5);
+	display:block;
+	min-height:100px;
+	margin-top:20px;
+	border-radius: 8px;
+}

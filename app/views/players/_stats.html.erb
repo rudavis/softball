@@ -1,0 +1,40 @@
+<table class="stats-table" cellspacing="0px" cellpadding="0px" width="100%">
+	<thead>
+		<tr>
+			<th>YR</th>
+			<th>Team</th>
+			<th>G</th>
+			<th>AB</th>
+			<th>R</th>
+			<th>H</th>
+			<th>2B</th>
+			<th>3B</th>
+			<th>HR</th>
+			<th>RBI</th>
+			<th>BB</th>
+			<th>K</th>
+			<th>AVG</th>													
+			<th>SLG</th>
+			<th>OB %</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>YEAR</td>
+			<td>TEAM NAME</td>
+			<td><%= @player.num_games %></td>
+			<td><%= @player.at_bats %></td>
+			<td><%= @player.runs %></td>
+			<td><%= @player.hits %></td>
+			<td><%= @player.doubles %></td>
+			<td><%= @player.triples %></td>
+			<td><%= @player.homeruns %></td>
+			<td><%= @player.rbis %></td>
+			<td><%= @player.walks %></td>
+			<td>TODO K's</td>
+			<td><%= number_with_precision(@player.batting_average, :precision => 3) %></td>
+			<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
+			<td>TODO: OB %</td>
+		</tr>
+	</tbody>
+</table>

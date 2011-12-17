@@ -1,11 +1,15 @@
 Softball::Application.routes.draw do
   
+  resources :teams do
+    resources :players
+  end
+  
   resources :players do
     resources :games 
   end
   
 
-  root :to => "home#index"
+  root :to => "players#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

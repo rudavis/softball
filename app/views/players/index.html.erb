@@ -1,22 +1,47 @@
-<h2>Listing players</h2>
-<table class="stats-table" cellpadding="0px" cellspacing="0px">
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="player-list">
+	<h2>The Players</h2>
+	<%= render "list" %>
+</div>
+<div id="get-started">
+	<h2>Create your own card</h2>
+	<p>Here is where I will what I can do and why I think they should do it.  And here is some extra text to see how it's gonna wrap in a paragraph....
+		<ul>
+			<li>Reason 1</li>
+			<li>Reason 1</li>
+			<li>Reason 1</li>
+		</ul>
+	</p>
+	<input type="button" id="start-button" value="Get Started" />
+</div>
 
-<% @players.each do |player| %>
-  <tr>
-    <td><%= player.name %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="dialog" title="Create your card">
+	<p>Maybe rendering the partial form isn't working....
+		<%= render "form" %>
+	</p>
+</div>
 
-<br />
 
-<%= link_to 'New Player', new_player_path %>
+<script>
+$(function() {
+	$( "#dialog" ).dialog({
+		autoOpen: false,
+		modal: true,
+		buttons: {
+			"Create": function() {
+				$( this ).dialog( "close" );
+			},
+			Cancel: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	});
+	
+	$("#start-button").click(function() {
+		$("#dialog").dialog("open");
+		return false;
+	});
+});
+
+
+
+</script>

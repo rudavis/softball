@@ -1,0 +1,17 @@
+<table class="stats-table" cellpadding="0px" cellspacing="0px">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player.name %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy', player, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,6 +1,7 @@
 class Player < ActiveRecord::Base
   validates :name, :presence => true
   has_many :games
+  belongs_to :team
   
   def at_bats
     games.all.sum(&:at_bats)
@@ -30,7 +31,7 @@ class Player < ActiveRecord::Base
   def walks
     games.all.sum(&:walks)
   end  
-#Not going to use total bases  
+#Figure out how to add singles + doubles *2 + triples*3 + homeruns*4
   def total_bases
     games.all.sum(&:total_bases)
   end

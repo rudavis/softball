@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211030150) do
+ActiveRecord::Schema.define(:version => 20111216201023) do
 
   create_table "games", :force => true do |t|
     t.integer  "hits"
@@ -36,7 +36,13 @@ ActiveRecord::Schema.define(:version => 20111211030150) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "on_base_percentage"
+    t.integer  "team_id"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

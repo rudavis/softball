@@ -8,11 +8,12 @@ class Game < ActiveRecord::Base
         batting_average = (self.hits + self.doubles + self.triples + self.homeruns) / self.at_bats.to_f
     end
     def slugging_percentage
-        (self.hits + self.doubles * 2 + self.triples * 3 + self.homeruns * 4) / self.at_bats.to_f
+        slugging_percentage = self.total_bases / self.at_bats.to_f
     end
-    
-    #TODO On Base %
-    #<%= (game.hits + game.walks) / (game.total_bases + game.walks.to_f) %>
-    
-
+    def on_base_percentage
+        on_base_percentage = (self.hits + self.walks) / (self.total_bases + self.walks.to_f)
+    end
+    def total_bases
+      total_bases = self.hits + self.doubles * 2 + self.triples * 3 + self.homeruns * 4
+    end
 end

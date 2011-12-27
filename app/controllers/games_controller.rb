@@ -3,7 +3,7 @@ class GamesController < ApplicationController
     @player = Player.find(params[:player_id])
     @game = @player.games.create(params[:game])
     redirect_to player_path(@player)
-
+  end
 =begin
     @player = Player.find(params[:player_id])
     @game = @player.games.new(params[:game])
@@ -18,5 +18,4 @@ class GamesController < ApplicationController
       end
     end
 =end
-  end
 end

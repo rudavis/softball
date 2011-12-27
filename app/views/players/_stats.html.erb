@@ -2,11 +2,12 @@
 	<thead>
 		<tr>
 			<th>YR</th>
-			<th>Team</th>
+			<th style="text-align:left">Team</th>
 			<th>G</th>
+			<th>H</th>
 			<th>AB</th>
 			<th>R</th>
-			<th>H</th>
+			<th>1B</th>
 			<th>2B</th>
 			<th>3B</th>
 			<th>HR</th>
@@ -20,21 +21,22 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td>YEAR</td>
-			<td>TEAM NAME</td>
+			<td>YR</td>
+			<td style="text-align:left">TEAM NAME</td>
 			<td><%= @player.num_games %></td>
+			<td><%= @player.hits %></td>
 			<td><%= @player.at_bats %></td>
 			<td><%= @player.runs %></td>
-			<td><%= @player.hits %></td>
+			<td><%= @player.singles %></td>
 			<td><%= @player.doubles %></td>
 			<td><%= @player.triples %></td>
 			<td><%= @player.homeruns %></td>
 			<td><%= @player.rbis %></td>
 			<td><%= @player.walks %></td>
-			<td>TODO K's</td>
+			<td><%= @player.strike_outs %></td>
 			<td><%= number_with_precision(@player.batting_average, :precision => 3) %></td>
 			<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
-			<td>TODO: OB %</td>
+			<td>OB%</td>
 		</tr>
 	</tbody>
 </table>

@@ -3,26 +3,29 @@
 	padding:0px;
 }
 
-body {
-	background-image: url('/images/baseball_diamond.png');
-	background-size: cover;
-}
+
 #container {
 	width:990px;
 	margin:0 auto;
 }
+
 #header {
 	background-color: rgba(239,239,239,0.5);
-	min-height:100px;
-	margin-top:25px;
-	border-radius: 8px;
-	box-shadow:0px 0px 24px 8px rgba(255,255,255,0.5);
+	color:#fff;
 }
 h1{
-	color:#fff;
-	font-size:48px;
-	padding:40px 0px 0px 5px;
+	padding:10px;
 }
+#login {
+	float:right;
+	list-style-type: none;
+	padding: 10px;
+}
+#login li {
+	display:inline;
+	padding: 0px 5px 0px 5px;
+}
+
 .content-block {
 	background-color: rgba(245,245,245,0.5);
 	min-height:25px;
@@ -39,3 +42,53 @@ h1{
 	width:49%;
 	border:1px solid #fff;
 }
+#create-player {
+	text-align:left;
+}
+#player-position {
+	float:right;
+}
+#baseball-field {
+	background-image: url('/images/diamond.png');
+	background-repeat: no-repeat;
+	width:300px;
+	height:250px;
+}
+#baseball-field ul {
+	list-style-type:none;
+	text-align:center;
+	padding-top:34px;
+	padding-right:4px;
+}
+#outfield li{
+	float:right;
+	width:33%;
+}
+#RF,#LF,#third,#first {
+	padding-top:55px;
+}
+#infield {
+	width: 37%;
+	margin-left:auto;
+	margin-right:auto;
+}
+#infield li{
+	float:right;
+	width:20%;
+}
+#short, #second {
+	padding-top: 20px;
+}
+#pitch {
+	padding-top: 62px;
+}
+#catch {
+	padding-top: 27px;
+}
+
+
+
+
+
+
+

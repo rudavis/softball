@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
+        # TODO: Not sure Why notice is getting appended as a query string...
         format.html { redirect_to :action => :index, notice: 'Team was successfully created.' }
       else
         format.html { render action: "new" }

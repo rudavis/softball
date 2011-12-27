@@ -1,15 +1,17 @@
 <%= form_for ([@player, @player.games.build]) do |f| %>
 	<tr>
 		<td><%= f.text_field :name, :size => 10 %></td>
+		<td><%= f.datepicker 'date', :dateFormat => 'yy-mm-dd' %></td>
+		<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		
 		<td><%= f.text_field :at_bats, :size => 3, :value => 0 %></td>
 		<td><%= f.text_field :runs, :size => 3, :value => 0 %></td>
-		<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :singles, :size => 3, :value => 0 %></td>
 		<td><%= f.text_field :doubles, :size => 3, :value => 0 %></td>
 		<td><%= f.text_field :triples, :size => 3, :value => 0 %></td>
 		<td><%= f.text_field :homeruns, :size => 3, :value => 0 %></td>
 		<td><%= f.text_field :rbis, :size => 3, :value => 0 %></td>
 		<td><%= f.text_field :walks, :size => 3, :value => 0 %></td>
-		<td>TODO K's'</td>
+		<td><%= f.text_field :strike_outs, :size => 3, :value => 0 %></td>
 		<td></td>
 		<td></td>
 		<td></td>

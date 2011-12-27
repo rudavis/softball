@@ -1,21 +1,55 @@
-<div class="player">
-	<div class="player-card">
+<div id="player">
+	<div id="card-front">
 		<img class="player-picture" src="/images/rosie.png" />
 		<div class="player-name">
-			<%= @player.name %>
+			<!-- TODO:  if nickname is not blank...-->
+			<h2><%= @player.first_name %>&nbsp;<%= @player.last_name %></h2>
 		</div>
 	</div>
-	<div class="player-stats">
-		<h2>Player Stats:</h2>
+	<div id="card-back">
+		<!-- TODO:  if nickname is not blank...-->
+		<h2><%= @player.first_name %>&nbsp;<%= @player.last_name %></h2>
 		<%= render :partial => "stats" %>
 	</div>
 </div>
-<div class="games">
-	<p id="notice"><%= notice %></p>
-	<%= render "games/header" %>
+<br />
+<div id="games">
+	<h2>Games</h2>
+	<%= render :partial => "games/header" %>
 	<%= render @player.games %>
-	<%= render "games/form" %>
+	</tbody>
+	</table>
+	<input type="button" id="new-game" value="Add Game" />
 </div>
-
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
+
+<div id="dialog" title="Add a Game">
+	<p>
+		<%= render :partial => "games/header" %>
+		<%= render :partial => "games/form" %>
+	</p>
+</div>
+
+<script>
+$(function() {
+	$( "#dialog" ).dialog({
+		autoOpen: false,
+		modal: true,
+		width: 650,
+		buttons: {
+			"Create": function() {
+				$( this ).dialog( "close" );
+			},
+			Cancel: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	});
+	
+	$("#new-game").click(function() {
+		$("#dialog").dialog("open");
+		return false;
+	});
+});
+</script>

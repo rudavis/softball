@@ -15,9 +15,7 @@
 </div>
 
 <div id="dialog" title="Create your card">
-	<p>Maybe rendering the partial form isn't working....
-		<%= render "form" %>
-	</p>
+	<%= render "form" %>
 </div>
 
 
@@ -26,9 +24,15 @@ $(function() {
 	$( "#dialog" ).dialog({
 		autoOpen: false,
 		modal: true,
+		width: 650,
 		buttons: {
 			"Create": function() {
-				$( this ).dialog( "close" );
+				var bValid = true;
+				//TODO:  Form validation: First name & Last Name not blank
+				//TODO:  Error handling and presentation.
+				if (bValid) {
+					$('#new_player').submit();
+				};
 			},
 			Cancel: function() {
 				$( this ).dialog( "close" );

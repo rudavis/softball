@@ -1,12 +1,11 @@
-<table class="stats-table" cellspacing="0px" cellpadding="0px" width="97%">
+<table id="career-stats" class="stats-table" cellspacing="0px" cellpadding="0px" width="97%">
 	<thead>
-		<tr>
-			<th>YR</th>
-			<th style="text-align:left">Team</th>
+		<tr class="header">
 			<th>G</th>
-			<th>H</th>
+			<th>AVG</th>
 			<th>AB</th>
 			<th>R</th>
+			<th>H</th>
 			<th>1B</th>
 			<th>2B</th>
 			<th>3B</th>
@@ -14,19 +13,17 @@
 			<th>RBI</th>
 			<th>BB</th>
 			<th>K</th>
-			<th>AVG</th>													
 			<th>SLG</th>
-			<th>OB %</th>
+			<th>OB %</th>				
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>YR</td>
-			<td style="text-align:left">TEAM NAME</td>
 			<td><%= @player.num_games %></td>
-			<td><%= @player.hits %></td>
+			<td><%= number_with_precision(@player.batting_average, :precision => 3) %></td>
 			<td><%= @player.at_bats %></td>
 			<td><%= @player.runs %></td>
+			<td><%= @player.hits %></td>
 			<td><%= @player.singles %></td>
 			<td><%= @player.doubles %></td>
 			<td><%= @player.triples %></td>
@@ -34,9 +31,8 @@
 			<td><%= @player.rbis %></td>
 			<td><%= @player.walks %></td>
 			<td><%= @player.strike_outs %></td>
-			<td><%= number_with_precision(@player.batting_average, :precision => 3) %></td>
 			<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
-			<td>OB%</td>
+			<td>OB%</td>					
 		</tr>
-	</tbody>
+	</tbody>			
 </table>

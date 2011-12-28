@@ -2,14 +2,22 @@
 	<div id="card-front">
 		<img class="player-picture" src="/images/rosie.png" />
 		<div class="player-name">
-			<!-- TODO:  if nickname is not blank...-->
-			<h2><%= @player.first_name %>&nbsp;<%= @player.last_name %></h2>
+			<h2><%= @player.name %></h2>
 		</div>
 	</div>
-	<div id="card-back">
-		<!-- TODO:  if nickname is not blank...-->
-		<h2><%= @player.first_name %>&nbsp;<%= @player.last_name %></h2>
-		<%= render :partial => "stats" %>
+	<div id="player-stats">
+		<table id="name-position">
+			<tr>
+				<td><%= @player.name %></td>
+				<td id="position">CF</td>
+			</tr>
+		</table>
+		<h3>Season Stats</h3>
+		<%= render :partial => "season_stats" %>
+		<h3>Career Stats</h3>
+		<%= render :partial => "career_stats" %>
+		<h3>Player Bio</h3>
+		<%= render :partial => "bio" %>
 	</div>
 </div>
 <br />

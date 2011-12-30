@@ -21,43 +21,43 @@
 	</div>
 </div>
 <br />
-<div id="games">
-	<h2>Games</h2>
-	<%= render :partial => "games/header" %>
-	<%= render @player.games %>
-	</tbody>
+<div id="add-a-game">
+	<table cellspacing="2px" cellpadding="5px">
+		<thead>
+			<tr>
+				<th style="text-align:left">Team</th>
+				<th style="text-align:left">Date</th>
+				<th>H</th>			
+				<th>AB</th>
+				<th>R</th>
+				<th>1B</th>
+				<th>2B</th>
+				<th>3B</th>
+				<th>HR</th>
+				<th>RBI</th>
+				<th>BB</th>
+				<th>K</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= form_for ([@player, @player.games.build]) do |f| %>
+				<tr>
+					<td><%= f.text_field :name, :size => 25, :style =>'text-align:left' %></td>
+					<td><%= f.datepicker 'date', :dateFormat => 'yy-mm-dd', :size => 10, :style =>'text-align:left' %></td>
+					<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		
+					<td><%= f.text_field :at_bats, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :runs, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :singles, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :doubles, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :triples, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :homeruns, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :rbis, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :walks, :size => 3, :value => 0 %></td>
+					<td><%= f.text_field :strike_outs, :size => 3, :value => 0 %></td>
+					<td><%= f.submit :value => 'Add Game'%>
+			<% end %>
+				</tr>
+		</tbody>
 	</table>
-	<input type="button" id="new-game" value="Add Game" />
 </div>
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
-
-<div id="dialog" title="Add a Game">
-	<p>
-		<%= render :partial => "games/header" %>
-		<%= render :partial => "games/form" %>
-	</p>
-</div>
-
-<script>
-$(function() {
-	$( "#dialog" ).dialog({
-		autoOpen: false,
-		modal: true,
-		width: 650,
-		buttons: {
-			"Create": function() {
-				$( this ).dialog( "close" );
-			},
-			Cancel: function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	});
-	
-	$("#new-game").click(function() {
-		$("#dialog").dialog("open");
-		return false;
-	});
-});
-</script>

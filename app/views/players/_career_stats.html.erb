@@ -1,6 +1,8 @@
 <table id="career-stats" class="stats-table" cellspacing="0px" cellpadding="0px" width="97%">
 	<thead>
 		<tr class="header">
+			<th>YR</th>
+			<th>Team</th>
 			<th>G</th>
 			<th>AVG</th>
 			<th>AB</th>
@@ -19,6 +21,8 @@
 	</thead>
 	<tbody>
 		<tr>
+			<td>YR</td>
+			<td>Team</td>
 			<td><%= @player.num_games %></td>
 			<td><%= number_with_precision(@player.batting_average, :precision => 3) %></td>
 			<td><%= @player.at_bats %></td>

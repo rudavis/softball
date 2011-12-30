@@ -30,7 +30,6 @@
 	background-color:#000;
 	height: 350px;
 	color:#FFF;
-	font-family: sans-serif;
 }
 #name-position {
 	margin:0px 10px 0px 10px;
@@ -66,4 +65,23 @@ h3 {
 #bio-notes {
 	float:right;
 	width: 75%;
+}
+#add-a-game {
+	width:100%;
+}
+#add-a-game table{
+	background-color:#000;
+	color:#fff;
+	text-align:center;
+	margin:auto;
+}
+#add-a-game th {
+	font-weight:400;
+}
+#add-a-game input {
+	background-color:#000;
+	border:1px solid #fff;
+	color:#fff;
+	text-align:center;
+	padding:5px;
 }

@@ -20,10 +20,10 @@ h1{
 	float:right;
 	list-style-type: none;
 	padding: 10px;
-}
-#login li {
-	display:inline;
-	padding: 0px 5px 0px 5px;
+	li {
+		display:inline;
+		padding: 0px 5px 0px 5px;
+	}
 }
 
 .content-block {
@@ -54,12 +54,12 @@ h1{
 	background-repeat: no-repeat;
 	width:300px;
 	height:250px;
-}
-#baseball-field ul {
-	list-style-type:none;
-	text-align:center;
-	padding-top:34px;
-	padding-right:4px;
+	ul {
+		list-style-type:none;
+		text-align:center;
+		padding-top:34px;
+		padding-right:4px;
+	}
 }
 #outfield li{
 	float:right;
@@ -72,10 +72,10 @@ h1{
 	width: 37%;
 	margin-left:auto;
 	margin-right:auto;
-}
-#infield li{
-	float:right;
-	width:20%;
+	li{
+		float:right;
+		width:20%;
+	}
 }
 #short, #second {
 	padding-top: 20px;
@@ -86,10 +86,3 @@ h1{
 #catch {
 	padding-top: 27px;
 }
-
-
-
-
-
-
-

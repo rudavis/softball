@@ -35,9 +35,9 @@
 	margin:0px 10px 0px 10px;
 	padding:10px 0px 10px 0px;
 	width:97%;
-}
-#name-position td{
-	font-size:22pt;
+	td{
+		font-size:22pt;
+	}
 }
 #position {
 	text-align:right;
@@ -58,9 +58,9 @@ h3 {
 }
 #player-bio .attribute {
 	text-align:right;
-}
-#player-bio .value {
-	text-align:left;
+	.value {
+		text-align:left;
+	}
 }
 #bio-notes {
 	float:right;
@@ -68,22 +68,22 @@ h3 {
 }
 #add-a-game {
 	width:100%;
-}
-#add-a-game table{
-	background-color:#000;
-	color:#fff;
-	text-align:center;
-	margin:auto;
-}
-#add-a-game th {
-	font-weight:400;
-	background-image:url('/images/light_bg.png');
-	background-repeat:repeat-x;
-}
-#add-a-game input {
-	background-color:#000;
-	border:1px solid #fff;
-	color:#fff;
-	text-align:center;
-	padding:5px;
+	table {
+		background-image:url('/images/light_bg.png');
+		color:#fff;
+		text-align:center;
+		margin:auto;
+	}
+	th,td {
+		border:1px solid #DCDCDC;
+		padding:3px;
+		font-size:14px;
+	}
+	input {
+		background-image:url('/images/light_bg.png');
+		border: none;
+		color:#fff;
+		font-size:14px;
+		text-align:center;
+	}
 }

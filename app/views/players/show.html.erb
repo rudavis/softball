@@ -22,11 +22,11 @@
 </div>
 <br />
 <div id="add-a-game">
-	<table cellspacing="0px" cellpadding="5px">
+	<table cellspacing="0" cellpadding="0">
 		<thead>
 			<tr class="scoreboard">
-				<th style="text-align:left">Team</th>
-				<th style="text-align:left">Date</th>
+				<th style="text-align:left"><img src="/images/team.png" /></th>
+				<th style="text-align:left"><img src="/images/date.png" /></th>
 				<th><img src="/images/h.png" /></th>			
 				<th><img src="/images/ab.png"></th>
 				<th><img src="/images/r.png"></th>
@@ -44,7 +44,10 @@
 			<%= form_for ([@player, @player.games.build]) do |f| %>
 				<tr>
 					<td><%= f.text_field :name, :size => 25, :style =>'text-align:left' %></td>
-					<td><%= f.datepicker 'date', :dateFormat => 'yy-mm-dd', :size => 10, :style =>'text-align:left' %></td>
+					<td>
+						<input id="datepicker" type="text" size="10" style="text-align:left" />
+						<%= f.hidden_field 'date' %>
+					</td>
 					<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		
 					<td><%= f.text_field :at_bats, :size => 3, :value => 0 %></td>
 					<td><%= f.text_field :runs, :size => 3, :value => 0 %></td>
@@ -58,6 +61,31 @@
 					<td><%= f.submit :value => 'Add Game'%>
 			<% end %>
 				</tr>
+				<tr>
+					<td style="text-align:left">Visitor</td>
+					<td></td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td></td>
+				</tr>
 		</tbody>
 	</table>
 </div>
+<script>
+	//<![CDATA[
+	$(function() {
+		$('#datepicker').datepicker({
+			"altField":"#game_date",
+			"altFormat":"yy-mm-dd"
+		})
+	});
+	//]]>
+</script>

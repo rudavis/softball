@@ -12,24 +12,12 @@
   <% end %>
 
   <div id="create-player">
-	<table id="player-name">
-		<thead>
-			<tr>
-				<th>First Name</th>
-				<th>Nick Name</th>
-				<th>Last Name</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><%= f.text_field :first_name %></td>
-				<td><%= f.text_field :nick_name %></td>
-				<td><%= f.text_field :last_name %></td>
-			</tr>
-		</tbody>
-	</table>
+	<div id="player-name">
+		<%= f.label :name %> <br />
+		<%= f.text_field :name %>
+	</div>
 	<div id="player-position">
-		<h3>Position</h3>
+		<%= f.label :position %>
 		<div id="baseball-field">
 			<ul id="outfield">
 				<li id="RF"><%= f.radio_button(:position,"RF") %></li>
@@ -49,18 +37,21 @@
 		</div>
 	</div>    		
 	<div id="player-attributes">
-		<h3>Bats:</h3>
+		<%= f.label :bats %>
 			<div class="options">
 				R:<%= f.radio_button(:bats,"R") %>&nbsp;&nbsp;
 				L:<%= f.radio_button(:bats,"L") %>&nbsp;&nbsp;
 				SW:<%= f.radio_button(:bats,"SW") %>&nbsp;&nbsp;
 			</div>
-		<h3>Throws:</h3>
+		<%= f.label :throws %>
 			<div class="options">
 				R:<%= f.radio_button(:throws,"R") %>&nbsp;&nbsp;
 				L:<%= f.radio_button(:throws,"L") %>&nbsp;&nbsp;
 				SW:<%= f.radio_button(:throws,"SW") %>&nbsp;&nbsp;
 			</div>
+		<%= f.label :notes %><br />
+		<%= f.text_area :notes, :cols => 40, :rows => 5 %>
+		
 	</div>
   </div>
 <% end %>

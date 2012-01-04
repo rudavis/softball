@@ -21,6 +21,27 @@
 
 <script>
 $(function() {
+	var name = $("#player_name"),
+		notes = $("#player_notes"),
+		allFields = $( [ ] ).add(name).add(notes),
+		tips = $(".validateTips");
+
+	function updateTips(t) {
+		tips.show();
+		tips.text(t).addClass("ui-state-highlight");
+	}
+
+	function checkLength(o, n, min, max ) {
+		if ( o.val().length > max || o.val().length < min) {
+			o.addClass("ui-state-error");
+			updateTips("Length of " + n + " must be longer than " + min + 
+				" and shorter than " + max + ".");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
 	$( "#dialog" ).dialog({
 		autoOpen: false,
 		modal: true,
@@ -29,15 +50,23 @@ $(function() {
 		buttons: {
 			"Create": function() {
 				var bValid = true;
-				//TODO:  Form validation: First name & Last Name not blank
-				//TODO:  Error handling and presentation.
-				if (bValid) {
+				allFields.removeClass("ui-state-error");
+				tips.hide();
+
+				bValid = bValid && checkLength(name, "Name", 3, 75);
+				bValid = bValid && checkLength(notes, "Notes", 0, 255);
+				
+				if ( bValid ) {
 					$('#new_player').submit();
-				};
+				}
 			},
 			Cancel: function() {
 				$( this ).dialog( "close" );
 			}
+		},
+		close: function() {
+			allFields.val("").removeClass("ui-state-error");
+			tips.hide();
 		}
 	});
 	

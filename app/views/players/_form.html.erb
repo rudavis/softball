@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<p class="validateTips"></p>
   <div id="create-player">
 	<div id="player-name">
 		<%= f.label :name %> <br />
@@ -39,15 +39,15 @@
 	<div id="player-attributes">
 		<%= f.label :bats %>
 			<div class="options">
-				R:<%= f.radio_button(:bats,"R") %>&nbsp;&nbsp;
-				L:<%= f.radio_button(:bats,"L") %>&nbsp;&nbsp;
-				SW:<%= f.radio_button(:bats,"SW") %>&nbsp;&nbsp;
+				R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
+				L:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
+				SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
 			</div>
 		<%= f.label :throws %>
 			<div class="options">
-				R:<%= f.radio_button(:throws,"R") %>&nbsp;&nbsp;
-				L:<%= f.radio_button(:throws,"L") %>&nbsp;&nbsp;
-				SW:<%= f.radio_button(:throws,"SW") %>&nbsp;&nbsp;
+				R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
+				L:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
+				SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
 			</div>
 		<%= f.label :notes %><br />
 		<%= f.text_area :notes, :cols => 40, :rows => 5 %>

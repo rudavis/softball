@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  hits: 1
-  rbis: 1
-  at_bats: 1
-  walks: 1
-  name: MyString
-  player: 
-
-two:
-  hits: 1
-  rbis: 1
-  at_bats: 1
-  walks: 1
-  name: MyString
-  player: 
+    name: test
+    hits: 3
+    at_bats: 5
+    rbis: 2
+    walks: 1
+    runs: 3
+    singles: 1
+    doubles: 1
+    triples: 0
+    homeruns: 1
+    total_bases: 7
+    date: 2012-01-03
+    strike_outs: 1
+    player_id:

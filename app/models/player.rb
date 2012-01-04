@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-#  validates :name, :presence => true
+  validates :name, :presence => true
   has_many :games
   belongs_to :team
   

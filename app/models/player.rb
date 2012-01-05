@@ -33,21 +33,21 @@ class Player < ActiveRecord::Base
   def strike_outs
     games.all.sum(&:strike_outs)
   end  
-#Figure out how to add singles + doubles *2 + triples*3 + homeruns*4
   def total_bases
-    games.all.sum(&:total_bases)
+    self.singles + self.doubles*2 + self.triples*3 + self.homeruns*4
   end
   def num_games
     games.count
   end
   def batting_average
-      (games.all.sum(&:hits) + games.all.sum(&:doubles) + games.all.sum(&:triples) + games.all.sum(&:homeruns)) / games.all.sum(&:at_bats).to_f
+    self.hits / self.at_bats.to_f
   end
   def slugging_percentage
-      (games.all.sum(&:hits) + games.all.sum(&:doubles) * 2 + games.all.sum(&:triples) * 3 + games.all.sum(&:homeruns) * 4) / games.all.sum(&:at_bats).to_f
+    self.total_bases / self.at_bats.to_f
   end
-  
-#TODO On Baes %
+  def on_base_percentage
+    (self.hits + self.walks) / (self.total_bases + self.walks).to_f
+  end
   
   
 end

@@ -36,7 +36,7 @@
 			<td><%= @player.walks %></td>
 			<td><%= @player.strike_outs %></td>
 			<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
-			<td>OB%</td>					
+			<td><%= number_with_precision(@player.on_base_percentage, :precision => 3) %></td>
 		</tr>
 	</tbody>			
 </table>

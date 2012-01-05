@@ -36,4 +36,11 @@ Softball::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.gem "rspec", :lib => false, :version => ">=1.2.9"
+  config.gem "rspec-rails", :lib => false, :version => ">=1.2.9"
+  config.gem "webrat", :lib => false, :version => ">=0.5.3"
+  config.gem "cucumber", :lib => false, :version => ">=0.4.3"
+  config.gem "pickle", :lib => false, :version => ">=0.1.21"
+
 end

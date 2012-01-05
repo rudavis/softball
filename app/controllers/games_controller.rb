@@ -2,7 +2,8 @@ class GamesController < ApplicationController
   def create
     @player = Player.find(params[:player_id])
     @game = @player.games.create(params[:game])
-    redirect_to player_path(@player)
+#    redirect_to player_path(@player)
+    redirect_to player_path(@player), notice: 'Game was successfully added.'
   end
   
   

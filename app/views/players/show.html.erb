@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div id="player">
 	<div id="card-front">
 		<img class="player-picture" src="/images/rosie.png" />
@@ -23,66 +22,7 @@
 </div>
 <br />
 <div id="add-a-game">
-<%#	<%= render :partial => "games/form" %> 
-<p class="validateTips"></p>
-	<table cellspacing="0" cellpadding="0">
-		<thead>
-			<tr class="scoreboard">
-				<th style="text-align:left"><img src="/images/team.png" /></th>
-				<th style="text-align:left"><img src="/images/date.png" /></th>
-				<th><img src="/images/h.png" /></th>			
-				<th><img src="/images/ab.png"></th>
-				<th><img src="/images/r.png"></th>
-				<th><img src="/images/1b.png"></th>
-				<th><img src="/images/2b.png"></th>
-				<th><img src="/images/3b.png"></th>
-				<th><img src="/images/hr.png"></th>
-				<th><img src="/images/rbi.png"></th>
-				<th><img src="/images/bb.png"></th>
-				<th><img src="/images/k.png"></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<%= form_for ([@player, @player.games.build]) do |f| %>
-				<tr>
-					<td><%= f.text_field :name, :size => 25, :style =>'text-align:left' %></td>
-					<td>
-						<input id="datepicker" type="text" size="10" style="text-align:left" />
-						<%= f.hidden_field 'date' %>
-					</td>
-					<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		
-					<td><%= f.text_field :at_bats, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :runs, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :singles, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :doubles, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :triples, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :homeruns, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :rbis, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :walks, :size => 3, :value => 0 %></td>
-					<td><%= f.text_field :strike_outs, :size => 3, :value => 0 %></td>
-					<td><input id= "submit_game", type="button", value="Add Game" />
-<%#						<%= f.submit :value => 'Add Game'%>
-					</td>
-			<% end %>
-				</tr>
-				<tr>
-					<td style="text-align:left">Visitor</td>
-					<td></td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td></td>
-				</tr>
-		</tbody>
-	</table>
+	<%= render :partial => "games/form" %> 
 </div>
 <script>
 	//<![CDATA[
@@ -107,6 +47,13 @@
 			numHits = parseInt(singles.val())+parseInt(doubles.val())+parseInt(triples.val())+parseInt(homeruns.val());
 			allFields.parent().removeClass("ui-state-error");
 			tips.hide();
+			
+			if (at_bats.val() == "0") {
+				at_bats.parent().addClass("ui-state-error");
+				updateTips("You didn't enter any at bats!");
+				return false;
+			}
+			
 			if (parseInt(hits.val()) > parseInt(at_bats.val())) {
 				hits.parent().addClass("ui-state-error");
 				at_bats.parent().addClass("ui-state-error");
@@ -132,9 +79,7 @@
 			bValid = bValid && validateGame();
 			
 			if (bValid) {
-				updateTips("Game passes my awesome validations!");
-			} else {
-
+				$('#new_game').submit();
 			}			
 		})
 		

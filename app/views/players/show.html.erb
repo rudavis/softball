@@ -23,6 +23,8 @@
 </div>
 <br />
 <div id="add-a-game">
+<%#	<%= render :partial => "games/form" %> 
+<p class="validateTips"></p>
 	<table cellspacing="0" cellpadding="0">
 		<thead>
 			<tr class="scoreboard">
@@ -59,7 +61,9 @@
 					<td><%= f.text_field :rbis, :size => 3, :value => 0 %></td>
 					<td><%= f.text_field :walks, :size => 3, :value => 0 %></td>
 					<td><%= f.text_field :strike_outs, :size => 3, :value => 0 %></td>
-					<td><%= f.submit :value => 'Add Game'%>
+					<td><input id= "submit_game", type="button", value="Add Game" />
+<%#						<%= f.submit :value => 'Add Game'%>
+					</td>
 			<% end %>
 				</tr>
 				<tr>
@@ -83,10 +87,62 @@
 <script>
 	//<![CDATA[
 	$(function() {
+		var name = $("#game_name"),
+			date = $("#game_date"),
+			hits = $("#game_hits"),
+			at_bats = $("#game_at_bats"),
+			singles = $("#game_singles"),
+			doubles = $("#game_doubles"),
+			triples = $("#game_triples"),
+			homeruns = $("#game_homeruns"),
+			allFields = $( [ ] ).add(hits).add(at_bats).add(singles).add(doubles).add(triples).add(homeruns),
+			tips = $(".validateTips");
+		
+		function updateTips(t) {
+				tips.show();
+				tips.text(t).addClass("ui-state-highlight");
+		}
+		
+		function validateGame() {
+			numHits = parseInt(singles.val())+parseInt(doubles.val())+parseInt(triples.val())+parseInt(homeruns.val());
+			allFields.parent().removeClass("ui-state-error");
+			tips.hide();
+			if (parseInt(hits.val()) > parseInt(at_bats.val())) {
+				hits.parent().addClass("ui-state-error");
+				at_bats.parent().addClass("ui-state-error");
+				updateTips("You can't have more hits than at bats!");
+				return false;
+			} 
+			if (parseInt(hits.val()) != numHits) {
+				hits.parent().addClass("ui-state-error");
+				singles.parent().addClass("ui-state-error");
+				doubles.parent().addClass("ui-state-error");
+				triples.parent().addClass("ui-state-error");
+				homeruns.parent().addClass("ui-state-error");
+				updateTips("Your number of hits doesn't add up!");
+				return false;			
+			} else {
+				return true;
+			}
+		}
+	
+		$('#submit_game').click(function() {
+			var bValid = true;
+
+			bValid = bValid && validateGame();
+			
+			if (bValid) {
+				updateTips("Game passes my awesome validations!");
+			} else {
+
+			}			
+		})
+		
 		$('#datepicker').datepicker({
 			"altField":"#game_date",
 			"altFormat":"yy-mm-dd"
-		})
+		})	
+		
 	});
 	//]]>
 </script>

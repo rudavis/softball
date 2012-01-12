@@ -1,18 +1,53 @@
-<h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+<h2>Sign Up</h2>
+<div><%= f.label :name %> <br />
+<%= f.text_field :name %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div><%= f.label :email %><br />
+<%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<div><%= f.label :password %><br />
+<%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+<div><%= f.label :password_confirmation %><br />
+<%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+<h2><%= f.label :position %></h2>
+<div id="baseball-field">
+	<ul id="outfield">
+		<li id="RF"><%= f.radio_button(:position,"RF") %></li>
+		<li id="CF"><%= f.radio_button(:position,"CF") %></li>
+		<li id="LF"><%= f.radio_button(:position,"LF") %></li>
+	</ul>
+	<ul id="infield">
+		<li id="first"><%= f.radio_button(:position,"1B") %></li>
+		<li id="second"><%= f.radio_button(:position,"2B") %></li>
+		<li>
+			<div id="pitch"><%= f.radio_button(:position,"P") %></div>
+			<div id="catch"><%= f.radio_button(:position,"C") %></div>
+		</li>
+		<li id="short"><%= f.radio_button(:position,"SS") %></li>
+		<li id="third"><%= f.radio_button(:position,"3B") %></li>
+	</ul>
+</div>
+<h2><%= f.label :bats %></h2>
+	<div class="options">
+		R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
+		L:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
+		SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
+	</div>
+<h2><%= f.label :throws %></h2>
+	<div class="options">
+		R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
+		L:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
+		SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
+	</div>
+<h2><%= f.label :notes %></h2>
+<%= f.text_area :notes, :cols => 40, :rows => 5 %>
+
+<div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

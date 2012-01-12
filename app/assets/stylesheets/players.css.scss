@@ -9,21 +9,20 @@
 	height: 350px;
 	float:left;
 	margin-left: 10px;
+	img {
+		margin-left:22px;
+		margin-top:78px;
+		width: 205px;
+	}
+	h2 {
+		text-align:center;
+		margin-top:0px;
+		margin-left:22px;
+		width: 205px;
+		font-weight:bold;
+		font-size:13px;
+	}
 }
-.player-picture {
-	margin-left:22px;
-	margin-top:78px;
-	width: 205px;
-}
-.player-name {
-	text-align:center;
-	margin-top:0px;
-	margin-left:22px;
-	width: 205px;
-	font-weight:bold;
-	font-size:13px;
-}
-
 #player-stats {
 	width: 66%;
 	margin-left: 33%;

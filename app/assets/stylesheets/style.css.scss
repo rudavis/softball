@@ -3,6 +3,12 @@
 	padding:0px;
 }
 
+h2,h3 {
+	padding:10px 0px 10px 0px;
+}
+input {
+	padding:4px;
+}
 
 #container {
 	width:990px;
@@ -12,37 +18,50 @@
 
 #header {
 	background-color: rgba(239,239,239,0.5);
-	color:#fff;
-}
-h1{
-	padding:10px;
-}
-#login {
-	float:right;
-	list-style-type: none;
-	padding: 10px;
-	li {
-		display:inline;
-		padding: 0px 5px 0px 5px;
+	margin-top:25px;
+	margin-bottom:5px;
+	h1{
+		padding:10px;
+	}
+	ul {
+		float:right;
+		list-style-type: none;
+		padding: 10px;
+		li {
+			display:inline;
+			padding: 0px 5px 0px 5px;
+		}
 	}
 }
-
 .content-block {
 /*	background-color: rgba(245,245,245,0.5); */
-	background-color: rgba(2,2,2,0.7);
-	min-height:25px;
+	background-color: rgba(2,2,2,0.6);
+	min-height:350px;
 /*	margin-top:20px; */
 	border-radius: 8px;
-	padding:10px 5px 10px 5px;
+	padding:10px ;
 }
-#player-list {
+#example-cards {
+	background-image: url('/images/tops_template.png');
+	background-repeat: no-repeat;
+	width: 26%;
+	height: 350px;
 	float:right;
-	width:49%;
-	border:1px solid #fff;
-}
-#get-started {
-	width:49%;
-	border:1px solid #fff;
+	margin-left: 10px;
+	img {
+		margin-left:22px;
+		margin-top:78px;
+		width: 205px;
+	}
+	h2 {
+		text-align:center;
+		padding:0px;
+		margin-top:0px;
+		margin-left:22px;
+		width: 205px;
+		font-weight:bold;
+		font-size:13px;
+	}
 }
 #create-player {
 	text-align:left;
@@ -83,4 +102,26 @@ h1{
 }
 #catch {
 	padding-top: 27px;
+}
+
+/* Signup page */
+.sign-in-block {
+	width:47%;
+	height:340px;
+	float:right;
+	border:1px solid #fff;
+	border-radius:8px;
+	padding:0px 10px 0px 10px;
+	margin:4px;
+	ul {
+		margin:5px;
+		padding:5px;
+	}
+	li {
+		margin-left:15px;
+		font-size:16px;
+	}
+	div {
+		padding:5px 0px 5px 0px;
+	}
 }

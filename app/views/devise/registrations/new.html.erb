@@ -3,16 +3,16 @@
   <%= devise_error_messages! %>
 <h2>Sign Up</h2>
 <div><%= f.label :name %> <br />
-<%= f.text_field :name %></div>
+<%= f.text_field :name, :size => 45  %></div>
 
 <div><%= f.label :email %><br />
-<%= f.email_field :email %></div>
+<%= f.email_field :email, :size => 45  %></div>
 
 <div><%= f.label :password %><br />
-<%= f.password_field :password %></div>
+<%= f.password_field :password, :size => 45  %></div>
 
 <div><%= f.label :password_confirmation %><br />
-<%= f.password_field :password_confirmation %></div>
+<%= f.password_field :password_confirmation, :size => 45  %></div>
 
 <h2><%= f.label :position %></h2>
 <div id="baseball-field">

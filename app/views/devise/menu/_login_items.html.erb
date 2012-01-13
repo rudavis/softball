@@ -1,9 +1,9 @@
 <% if player_signed_in? %>
   <li>
-  <%= link_to('Logout', destroy_player_session_path, :method => :delete) %>        
+    <%= link_to('Logout', destroy_player_session_path, :method => :delete) %>        
   </li>
 <% else %>
   <li>
-  <%= link_to('Login', new_player_session_path, :id => "login-link")  %>  
+	<%= link_to('Login', new_player_session_path)  %>
   </li>
 <% end %>

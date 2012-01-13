@@ -12,17 +12,15 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<div id="login">
-				<ul>
-					<%= render 'devise/menu/registration_items' %>
-					<%= render 'devise/menu/login_items' %>
-				</ul>
-			</div>
+			<ul>
+				<%= render 'devise/menu/login_items' %>
+				<%= render 'devise/menu/registration_items' %>
+			</ul>
 			<h1>MAKE ME A BASEBALL CARD</h1>
 		</div>
+		<p id="notice"><%= notice %></p>
+		<p id="alert"><%= alert %></p>
 		<div id="main-content" class="content-block">
-			<p id="notice"><%= notice %></p>
-			<p id="alert"><%= alert %></p>
 			<%= yield %>
 		</div>
 	</div>

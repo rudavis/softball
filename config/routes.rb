@@ -1,12 +1,6 @@
 Softball::Application.routes.draw do
   
   devise_for :players
-
-#  devise_for :users
-
-  resources :teams do
-    resources :players
-  end
   
   resources :players do
     resources :games 

@@ -51,3 +51,69 @@
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+
+
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Account</a></li>
+		<li><a href="#tabs-2">Player Info</a></li>
+		<li><a href="#tabs-3">Team Info</a></li>
+	</ul>
+	<div id="tabs-1">
+		<div><label for="player_name">Name</label> <br />
+		<input id="player_name" name="player[name]" size="45" type="text" /></div>
+
+		<div><label for="player_email">Email</label><br />
+		<input id="player_email" name="player[email]" size="45" type="email" value="" /></div>
+
+		<div><label for="player_password">Password</label><br />
+		<input id="player_password" name="player[password]" size="45" type="password" /></div>
+
+		<div><label for="player_password_confirmation">Password confirmation</label><br />
+		<input id="player_password_confirmation" name="player[password_confirmation]" size="45" type="password" /></div>
+		<br />
+		<a href="#" id="next-tab">Next</a>
+	</div>
+	<div id="tabs-2">
+		<label for="player_position">Position</label>
+		<div id="baseball-field">
+			<ul id="outfield">
+
+				<li id="RF"><input id="player_position_rf" name="player[position]" type="radio" value="RF" /></li>
+				<li id="CF"><input id="player_position_cf" name="player[position]" type="radio" value="CF" /></li>
+				<li id="LF"><input id="player_position_lf" name="player[position]" type="radio" value="LF" /></li>
+			</ul>
+			<ul id="infield">
+				<li id="first"><input id="player_position_1b" name="player[position]" type="radio" value="1B" /></li>
+				<li id="second"><input id="player_position_2b" name="player[position]" type="radio" value="2B" /></li>
+				<li>
+					<div id="pitch"><input id="player_position_p" name="player[position]" type="radio" value="P" /></div>
+
+					<div id="catch"><input id="player_position_c" name="player[position]" type="radio" value="C" /></div>
+				</li>
+				<li id="short"><input id="player_position_ss" name="player[position]" type="radio" value="SS" /></li>
+				<li id="third"><input id="player_position_3b" name="player[position]" type="radio" value="3B" /></li>
+			</ul>
+		</div>
+		<label for="player_bats">Bats</label>
+			<div class="options">
+				R:<input id="player_bats_right" name="player[bats]" type="radio" value="Right" />&nbsp;&nbsp;
+
+				L:<input id="player_bats_left" name="player[bats]" type="radio" value="Left" />&nbsp;&nbsp;
+				SW:<input id="player_bats_switch" name="player[bats]" type="radio" value="Switch" />&nbsp;&nbsp;
+			</div>
+		<label for="player_throws">Throws</label>
+			<div class="options">
+				R:<input id="player_throws_right" name="player[throws]" type="radio" value="Right" />&nbsp;&nbsp;
+				L:<input id="player_throws_left" name="player[throws]" type="radio" value="Left" />&nbsp;&nbsp;
+
+				SW:<input id="player_throws_switch" name="player[throws]" type="radio" value="Switch" />&nbsp;&nbsp;
+			</div>
+		<label for="player_notes">Notes</label>
+		<textarea cols="40" id="player_notes" name="player[notes]" rows="5"></textarea>
+	</div>
+	<div id="tabs-3">
+		<input type="text" />
+	</div>
+</div>

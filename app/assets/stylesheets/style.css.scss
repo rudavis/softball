@@ -42,7 +42,7 @@ input {
 	padding:10px ;
 }
 #example-cards {
-	background-image: url('/images/tops_template.png');
+	background-image: url('/images/card-assets/tops_template.png');
 	background-repeat: no-repeat;
 	width: 26%;
 	height: 350px;
@@ -53,7 +53,7 @@ input {
 		margin-top:78px;
 		width: 205px;
 	}
-	h2 {
+	.player-name {
 		text-align:center;
 		padding:0px;
 		margin-top:0px;
@@ -61,6 +61,7 @@ input {
 		width: 205px;
 		font-weight:bold;
 		font-size:13px;
+		line-height:16px;
 	}
 }
 #create-player {

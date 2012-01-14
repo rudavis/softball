@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #card-front {
-	background-image: url('/images/tops_template.png');
+	background-image: url('/images/card-assets/tops_template.png');
 	background-repeat: no-repeat;
 	width: 33%;
 	height: 350px;
@@ -14,13 +14,14 @@
 		margin-top:78px;
 		width: 205px;
 	}
-	h2 {
+	.player-name {
 		text-align:center;
 		margin-top:0px;
 		margin-left:22px;
 		width: 205px;
 		font-weight:bold;
 		font-size:13px;
+		line-height:16px;
 	}
 }
 #player-stats {
@@ -71,7 +72,7 @@ h3 {
 #add-a-game {
 	width:100%;
 	table {
-		background-image:url('/images/light_bg.png');
+		background-image:url('/images/scoreboard/light_bg.png');
 		color:#fff;
 		text-align:center;
 		margin:auto;
@@ -82,7 +83,7 @@ h3 {
 		font-size:14px;
 	}
 	input {
-		background-image:url('/images/light_bg.png');
+		background-image:url('/images/scoreboard/light_bg.png');
 		border: none;
 		color:#fff;
 		font-size:14px;

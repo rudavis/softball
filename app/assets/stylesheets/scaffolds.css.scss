@@ -27,8 +27,11 @@ div {
     margin-bottom: 10px; } }
 
 #notice {
-  color: green; }
+	background-color:rgba(239, 239, 239, 0.5);
+	color: green;
+}
 #alert {
+	background-color:rgba(239, 239, 239, 0.5);
 	color: red;
 }
 

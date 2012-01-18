@@ -10,4 +10,7 @@ module ContentHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:player]
   end
+  def to_ba(s)
+  	s.match(/\.\d\d\d/).to_s
+  end
 end

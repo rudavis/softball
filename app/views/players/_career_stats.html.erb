@@ -24,7 +24,7 @@
 			<td>YR</td>
 			<td>Team</td>
 			<td><%= @player.num_games %></td>
-			<td><%= number_with_precision(@player.batting_average, :precision => 3) %></td>
+			<td><%= to_ba(@player.batting_average.to_s) %></td>
 			<td><%= @player.at_bats %></td>
 			<td><%= @player.runs %></td>
 			<td><%= @player.hits %></td>

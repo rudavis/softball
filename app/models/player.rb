@@ -8,7 +8,6 @@ class Player < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :position, :bats, :throws, :notes
   #validates :name, :presence => true
   has_many :games
-  belongs_to :team
   
   def at_bats
     games.all.sum(&:at_bats)

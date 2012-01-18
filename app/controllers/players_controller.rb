@@ -17,6 +17,11 @@ class PlayersController < ApplicationController
   # GET /players/1.json
   def show
     @player = Player.find(params[:id])
+    if @player.games.count >= 1
+      @last_team_name = @player.games.find(:last).team_name
+    else
+      @last_team_name = "Enter your team name"
+    end
 
     respond_to do |format|
       format.html # show.html.erb

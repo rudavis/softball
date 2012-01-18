@@ -20,9 +20,9 @@
 		<tbody>
 			<%= form_for ([@player, @player.games.build]) do |f| %>
 				<tr>
-					<td><%= f.text_field :team_name, :size => 20, :style =>'text-align:left' %></td>
+					<td><%= f.text_field :team_name, :size => 25, :style =>'text-align:left', :value => @last_team_name %></td>
 					<td>
-						<input id="datepicker" type="text" size="10" style="text-align:left" />
+						<input id="datepicker" type="text" size="10" style="text-align:left" value="Game Date" />
 						<%= f.hidden_field 'date' %>
 					</td>
 					<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		

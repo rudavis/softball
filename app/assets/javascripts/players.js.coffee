@@ -6,3 +6,5 @@ $ ->
 	$('#next-tab').click -> 
 		tabs.tabs('select',1)
 		return false
+	$('input').mouseup (e) -> e.preventDefault()
+	$('input:text').focus -> $(this).select()

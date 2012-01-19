@@ -1,18 +1,22 @@
 <tbody>
-	<tr>
-		<td><%= game.name %></td>
-		<td><%= game.date %></td>
-		<td><%= game.hits %></td>		
-		<td><%= game.at_bats %></td>
-		<td><%= game.runs %></td>
-		<td><%= game.singles %></td>
-		<td><%= game.doubles %></td>
-		<td><%= game.triples %></td>
-		<td><%= game.homeruns %></td>
-		<td><%= game.rbis %></td>
-		<td><%= game.walks %></td>
-		<td><%= game.strike_outs %></td>
-		<td><%= number_with_precision(game.batting_average, :precision => 3 )%></td>
-		<td><%= number_with_precision(game.slugging_percentage, :precision => 3)%></td>
-		<td>OB%</td>
-	</tr>
+<% @games.each do |game| %>
+<tr>
+	<td><%= game.team_name %></td>
+	<td><%= game.date %></td>
+	<td><%= game.hits %></td>		
+	<td><%= game.at_bats %></td>
+	<td><%= game.runs %></td>
+	<td><%= game.singles %></td>
+	<td><%= game.doubles %></td>
+	<td><%= game.triples %></td>
+	<td><%= game.homeruns %></td>
+	<td><%= game.rbis %></td>
+	<td><%= game.walks %></td>
+	<td><%= game.strike_outs %></td>
+	<td><%= number_with_precision(game.batting_average, :precision => 3 )%></td>
+	<td><%= number_with_precision(game.slugging_percentage, :precision => 3)%></td>
+	<td>OB%</td>
+</tr>
+<% end %>
+</tbody>
+</table>

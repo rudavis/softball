@@ -3,7 +3,7 @@ Softball::Application.routes.draw do
   devise_for :players
   
   resources :players do
-    resources :games 
+    resources :games
   end
 
   root :to => "home#index"

@@ -1,39 +1,8 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
-  font-size:16px;
-  line-height: 20px; }
-
-p, ol, ul {
-  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
-  font-size:16px;
-  line-height: 20px; }
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px; }
-
-a {
-  color: #FFA500;
-  &:visited {
-    color: #FFA500; }
-  &:hover {
-    color: #FF0000;} }
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px; } }
-
-#notice {
-	background-color:rgba(239, 239, 239, 0.5);
-	color: green;
-}
-#alert {
-	background-color:rgba(239, 239, 239, 0.5);
-	color: red;
-}
 
 .field_with_errors {
   padding: 2px;

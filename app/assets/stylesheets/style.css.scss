@@ -2,6 +2,39 @@
 	margin:0px;
 	padding:0px;
 }
+
+/****  From Scaffold  ****/
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+  font-size:1.0em;
+  line-height: 1.2em; 
+}
+p, ol, ul {
+  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+  font-size:1.0em;
+  line-height: 1.2em; 
+}
+a {
+  color: #FFA500;
+  &:visited {
+    color: #FFA500; }
+  &:hover {
+    color: #FF0000;} }
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; } }
+#notice {
+	background-color:rgba(239, 239, 239, 0.5);
+	color: green;
+}
+#alert {
+	background-color:rgba(239, 239, 239, 0.5);
+	color: red;
+}
+/***********/
+
 h2,h3 {
 	padding:10px 0px 10px 0px;
 }
@@ -59,8 +92,6 @@ input {
 		margin-left:22px;
 		width: 205px;
 		font-weight:bold;
-		font-size:13px;
-		line-height:16px;
 	}
 }
 #create-player {

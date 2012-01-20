@@ -8,3 +8,4 @@ $ ->
 		return false
 	$('input').mouseup (e) -> e.preventDefault()
 	$('input:text').focus -> $(this).select()
+	$('select').selectmenu( width: 200)

@@ -8,7 +8,7 @@
 	background-image: url('/images/card-assets/tops_template.png');
 	background-repeat: no-repeat;
 	width: 26%;
-	height: 350px;
+	min-height: 350px;
 	float:left;
 	img {
 		margin-left:22px;
@@ -24,6 +24,11 @@
 		font-size:13px;
 		line-height:16px;
 	}
+}
+
+#edit-player-dd {
+	width:25%;
+	text-align: center;
 }
 
 #player-stats {
@@ -71,7 +76,7 @@
 	float:right;
 	width: 75%;
 }
-#add-a-game {
+.score-board {
 	width:100%;
 	table {
 		background-image:url('/images/scoreboard/light_bg.png');
@@ -83,6 +88,7 @@
 		border:1px solid #DCDCDC;
 		padding:3px;
 		font-size:14px;
+		min-width:50px;
 	}
 	input {
 		background-image:url('/images/scoreboard/light_bg.png');

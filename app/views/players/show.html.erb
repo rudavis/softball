@@ -20,9 +20,21 @@
 		<%= render :partial => "bio" %>
 	</div>
 </div>
+<div id="edit-player-dd">
+	<select>
+		<option>Edit My Account</option>
+		<option>Edit My Player Info</option>
+		<option>Edit My Picture</option>		
+		<option>Edit My Card Template</option>
+	</select>
+	<br />
+	<%= link_to "Edit", edit_player_registration_path %>
+</div>
 <br />
-<div id="add-a-game">
-	<%= render :partial => "games/form" %> 
+<div class="score-board">
+	<p class="validateTips"></p>
+	<%= render :partial => "games/score_board_header" %>
+	<%= render :partial => "games/form" %>
 	<%= link_to "List Games", player_games_path(@player) %>
 </div>
 <script>
@@ -87,8 +99,8 @@
 		$('#datepicker').datepicker({
 			"altField":"#game_date",
 			"altFormat":"yy-mm-dd"
-		})	
-		
+		})
+
 	});
 	//]]>
 </script>

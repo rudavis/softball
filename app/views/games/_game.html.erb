@@ -13,9 +13,7 @@
 	<td><%= game.rbis %></td>
 	<td><%= game.walks %></td>
 	<td><%= game.strike_outs %></td>
-	<td><%= number_with_precision(game.batting_average, :precision => 3 )%></td>
-	<td><%= number_with_precision(game.slugging_percentage, :precision => 3)%></td>
-	<td>OB%</td>
+	<td><%= link_to "Edit", edit_player_game_path(:player_id => game.player_id, :id => game.id) %>
 </tr>
 <% end %>
 </tbody>

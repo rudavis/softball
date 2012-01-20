@@ -16,6 +16,11 @@ class GamesController < ApplicationController
     redirect_to player_path(@player), notice: 'Game was successfully added.'
   end
   
+  def edit
+    @player = Player.find(params[:player_id])
+    @game = @player.games.find(params[:id])
+  end
+  
 =begin
     @player = Player.find(params[:player_id])
     @game = @player.games.new(params[:game])

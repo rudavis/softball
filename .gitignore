@@ -16,3 +16,6 @@
 
 # Ignore the .DS_Store file
 .DS_Store
+
+# Ignore locally uploaded images
+/public/system/avatars/*

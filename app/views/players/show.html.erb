@@ -4,6 +4,16 @@
 		<div class="player-name">
 			<%= @player.name %>
 		</div>
+		<br />
+		<div id="edit-player-dd">
+			<select>
+				<option>Edit My Account</option>
+				<option>Edit My Player Info</option>
+				<option>Edit My Picture</option>
+				<option>Edit My Games</option>
+				<option>Edit My Card</option>
+			</select>
+		</div>
 	</div>
 	<div id="player-stats">
 		<table id="name-position">
@@ -20,22 +30,14 @@
 		<%= render :partial => "bio" %>
 	</div>
 </div>
-<div id="edit-player-dd">
-	<select>
-		<option>Edit My Account</option>
-		<option>Edit My Player Info</option>
-		<option>Edit My Picture</option>		
-		<option>Edit My Card Template</option>
-	</select>
-	<br />
-	<%= link_to "Edit", edit_player_registration_path %>
-</div>
+
 <br />
 <div class="score-board">
 	<p class="validateTips"></p>
 	<%= render :partial => "games/score_board_header" %>
 	<%= render :partial => "games/form" %>
 	<%= link_to "List Games", player_games_path(@player) %>
+	<%= link_to "Edit", edit_player_registration_path %>
 </div>
 <script>
 	//<![CDATA[

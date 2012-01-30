@@ -39,6 +39,8 @@
 	<%= link_to "List Games", player_games_path(@player) %>
 	<%= link_to "Edit", edit_player_registration_path %>
 </div>
+
+<%= image_tag @player.avatar.url %>
 <script>
 	//<![CDATA[
 	$(function() {

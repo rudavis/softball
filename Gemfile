@@ -21,6 +21,9 @@ gem 'jquery-rails'
 # Devise Authentication: https://github.com/plataformatec/devise
 gem 'devise'
 
+# Paperclip: https://github.com/thoughtbot/paperclip
+gem 'paperclip', '~> 2.0'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

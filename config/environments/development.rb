@@ -30,4 +30,7 @@ Softball::Application.configure do
   
   # Devise told me to setup default url options for your specific environment.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  # Paperclip should find imagemagick here:
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

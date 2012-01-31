@@ -5,15 +5,7 @@
 			<%= @player.name %>
 		</div>
 		<br />
-		<div id="edit-player-dd">
-			<select>
-				<option>Edit My Account</option>
-				<option>Edit My Player Info</option>
-				<option>Edit My Picture</option>
-				<option>Edit My Games</option>
-				<option>Edit My Card</option>
-			</select>
-		</div>
+		<%= link_to "Edit", edit_player_path(@player), :id =>"edit-player" %>
 	</div>
 	<div id="player-stats">
 		<table id="name-position">
@@ -22,11 +14,11 @@
 				<td id="position"><%= @player.position %></td>
 			</tr>
 		</table>
-		<h3 class="stats-head">Season Stats</h3>
+		<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
 		<%= render :partial => "season_stats" %>
-		<h3 class="stats-head">Career Stats</h3>
+		<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
 		<%= render :partial => "career_stats" %>
-		<h3 class="stats-head">Player Bio</h3>
+		<div class="ui-widget-header ui-corner-all stats-head">Player Bio</div>
 		<%= render :partial => "bio" %>
 	</div>
 </div>
@@ -40,7 +32,6 @@
 	<%= link_to "Edit", edit_player_registration_path %>
 </div>
 
-<%= image_tag @player.avatar.url %>
 <script>
 	//<![CDATA[
 	$(function() {
@@ -99,11 +90,7 @@
 				$('#new_game').submit();
 			}			
 		})
-		
-		$('#datepicker').datepicker({
-			"altField":"#game_date",
-			"altFormat":"yy-mm-dd"
-		})
+
 
 	});
 	//]]>

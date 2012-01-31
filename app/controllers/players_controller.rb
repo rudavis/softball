@@ -19,7 +19,7 @@ class PlayersController < ApplicationController
     if @player.games.count >= 1
       @last_team_name = @player.games.find(:last).team_name
     else
-      @last_team_name = "Enter your team name"
+      @last_team_name = "Your team names"
     end
 
     respond_to do |format|
@@ -51,7 +51,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
+        format.html { redirect_to @player, notice: 'Welcome!  Player was successfully created.' }
         format.json { render json: @player, status: :created, location: @player }
       else
         format.html { render action: "new" }

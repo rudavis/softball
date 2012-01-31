@@ -3,9 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
 	tabs = $('#tabs').tabs()
-	$('#next-tab').click -> 
-		tabs.tabs('select',1)
-		return false
 	$('input').mouseup (e) -> e.preventDefault()
 	$('input:text').focus -> $(this).select()
-	$('select').selectmenu( width: 200)
+	$('#datepicker').datepicker('altField':'#game_date','altFormat':'yy-mm-dd')
+	$('input:submit').button()
+	$('#edit-player').button(icons:(primary: 'ui-icon-wrench'),text: false)
+	$('#get-started').button(icons:(secondary: 'ui-icon-circle-arrow-e'))

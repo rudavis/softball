@@ -11,13 +11,17 @@
     </div>
   <% end %>
 <p class="validateTips"></p>
-  <div id="create-player">
-	<div id="player-name">
-		<%= f.label :name %> <br />
-		<%= f.text_field :name %>
+<div id="tabs">
+	<ul>
+		<li><a href="#account-info">Account</a></li>
+		<li><a href="#player-info">Player Info</a></li>
+		<li><a href="#card-info">Card Template</a></li>
+	</ul>
+	<div id="account-info">
+
 	</div>
-	<div id="player-position">
-		<%= f.label :position %>
+	<div id="player-info">
+		<h2><%= f.label :position %></h2>
 		<div id="baseball-field">
 			<ul id="outfield">
 				<li id="RF"><%= f.radio_button(:position,"RF") %></li>
@@ -35,23 +39,24 @@
 				<li id="third"><%= f.radio_button(:position,"3B") %></li>
 			</ul>
 		</div>
-	</div>    		
-	<div id="player-attributes">
-		<%= f.label :bats %>
+		<h2><%= f.label :bats %></h2>
 			<div class="options">
 				R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
 				L:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
 				SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
 			</div>
-		<%= f.label :throws %>
+		<h2><%= f.label :throws %></h2>
 			<div class="options">
 				R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
 				L:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
 				SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
 			</div>
-		<%= f.label :notes %><br />
+		<h2><%= f.label :notes %></h2>
 		<%= f.text_area :notes, :cols => 40, :rows => 5 %>
-		
 	</div>
-  </div>
+	<div id="card-info">
+		<div><%= f.file_field :avatar %></div>
+	</div>
+
+<div><%= f.submit "Update" %></div>
 <% end %>

@@ -1,6 +1,6 @@
 Softball::Application.routes.draw do
   
-  devise_for :players
+  devise_for :players, :controllers => { :registrations => "registrations" }
   
   resources :players do
     resources :games

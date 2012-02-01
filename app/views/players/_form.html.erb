@@ -1,4 +1,4 @@
-<%= form_for(@player) do |f| %>
+<%= form_for(@player, :html => { :multipart => true }) do |f| %>
   <% if @player.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
@@ -10,18 +10,45 @@
       </ul>
     </div>
   <% end %>
-<p class="validateTips"></p>
-<div id="tabs">
-	<ul>
-		<li><a href="#account-info">Account</a></li>
-		<li><a href="#player-info">Player Info</a></li>
-		<li><a href="#card-info">Card Template</a></li>
-	</ul>
-	<div id="account-info">
-
+<style type="text/css">
+.third{
+	width:31%;
+	float:left;
+	display:inline;
+	padding:10px;
+	border:1px solid #fff;
+}
+</style>
+<div class="third">
+	<% if !@player.avatar %>
+		<img src="/images/avatar_placeholder.png" />
+	<% else %>
+		<%= image_tag @player.avatar.url(:medium) %>
+	<% end %>
+	<br />
+	<div><label for="player_avatar">Upload your picture</label> <br />
+	<%= f.file_field :avatar %></div>
+</div>
+<div class="third">
+	<div><%= f.label :name %> <br />
+	<%= f.text_field :name, :size => 45  %></div>
+	<div><%= f.label :bats %> <br />
+		<div class="options">
+			R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
+			L:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
+			SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
+		</div>
 	</div>
-	<div id="player-info">
-		<h2><%= f.label :position %></h2>
+	<div><%= f.label :throws %> <br />
+		<div class="options">
+			R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
+			L:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
+			SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
+		</div>
+	</div>
+</div>
+<div class="third">
+	<div><%= f.label :position %> <br />
 		<div id="baseball-field">
 			<ul id="outfield">
 				<li id="RF"><%= f.radio_button(:position,"RF") %></li>
@@ -39,24 +66,7 @@
 				<li id="third"><%= f.radio_button(:position,"3B") %></li>
 			</ul>
 		</div>
-		<h2><%= f.label :bats %></h2>
-			<div class="options">
-				R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
-				L:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
-				SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
-			</div>
-		<h2><%= f.label :throws %></h2>
-			<div class="options">
-				R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
-				L:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
-				SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
-			</div>
-		<h2><%= f.label :notes %></h2>
-		<%= f.text_area :notes, :cols => 40, :rows => 5 %>
 	</div>
-	<div id="card-info">
-		<div><%= f.file_field :avatar %></div>
-	</div>
-
-<div><%= f.submit "Update" %></div>
+</div>
+	<div style="clear:both"><%= f.submit "Update" %></div>
 <% end %>

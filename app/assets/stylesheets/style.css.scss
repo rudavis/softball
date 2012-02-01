@@ -112,6 +112,7 @@ input {
 #outfield li{
 	float:right;
 	width:33%;
+	margin:0px;
 }
 #RF,#LF,#third,#first {
 	padding-top:55px;
@@ -138,7 +139,7 @@ input {
 /* Signup page */
 .sign-in-block {
 	width:47%;
-	height:340px;
+	min-height:340px;
 	float:right;
 	border:1px solid #fff;
 	border-radius:8px;

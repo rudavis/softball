@@ -20,7 +20,7 @@
 }
 </style>
 <div class="third">
-	<% if !@player.avatar %>
+	<% if !@player.avatar_file_name %>
 		<img src="/images/avatar_placeholder.png" />
 	<% else %>
 		<%= image_tag @player.avatar.url(:medium) %>

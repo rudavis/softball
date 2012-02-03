@@ -5,12 +5,26 @@ class Player < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   # Paperclip image
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-
+  has_attached_file :avatar, :styles => { :thumb => "200x200>", :large => "500x500>" }, :processors => [:cropper]
+  after_update :reprocess_avatar, :if => :cropping?
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :position, :bats, :throws, :notes, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :position, :bats, :throws, :notes, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
 
   has_many :games
+  
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+  
+  def reset_crop
+    self.crop_w = nil
+
+  end
+  
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
+  end
   
   def at_bats
     games.all.sum(&:at_bats)
@@ -58,5 +72,8 @@ class Player < ActiveRecord::Base
     (self.hits + self.walks) / (self.total_bases + self.walks).to_f
   end
   
-  
+  private
+    def reprocess_avatar
+      avatar.reprocess!
+    end
 end

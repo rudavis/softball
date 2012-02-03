@@ -58,6 +58,40 @@ class PlayersController < ApplicationController
         format.json { render json: @player.errors, status: :unprocessable_entity }
       end
     end
+  end  
+  
+  # GET /player/1/crop
+  def crop
+    @player = Player.find(params[:id])
+  end
+
+  def process_crop
+    @player = Player.find(params[:id])
+
+    respond_to do |format|
+      if @player.update_attributes(params[:player])
+          format.html { redirect_to @player, notice: 'Thanks!  Your picture was cropped.' }
+          format.json { head :ok }
+      else
+        format.html { render action: "crop" }
+        format.json { render json: @player.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /player/1/upload
+  def upload
+    @player = Player.find(params[:id])
+    
+    respond_to do |format|
+      if @player.update_attributes(params[:player])
+        format.html { redirect_to crop_player_path(@player), notice: 'Picture was uploaded.' }
+        format.json { head :ok }
+      else 
+        format.html { render action: "edit" }
+        format.json { render json: @player.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /players/1
@@ -66,12 +100,29 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
 
     respond_to do |format|
-      if @player.update_attributes(params[:player])
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
+      # They DID NOT select a file to upload
+      if params[:player][:avatar].blank?
+          @player.update_attributes(params[:player])
+            format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+            format.json { head :ok }
+      else # They DID select a file to upload and:
+        # 1st time they've uplaoded a file
+        # Upload the file
+        # Redirect to Crop page
+        if @player.avatar_file_name.blank?
+            @player.update_attributes(params[:player])
+              format.html { redirect_to crop_player_path(@player), notice: 'Please crop.' }
+              format.json {head :ok }
+        else
+          # They have uploaded a file once before
+          # need to remove their old cropping values 
+            @player.update_attributes(:crop_x => '', :crop_y => '', :crop_w => '', :crop_h => '')
+            @player.update_attributes(params[:player])
+              format.html { redirect_to crop_player_path(@player), notice: 'Please crop the new picture.' }
+              format.json {head :ok }
+        end
+          format.html { render action: "edit" }
+          format.json { render json: @player.errors, status: :unprocessable_entity }
       end
     end
   end

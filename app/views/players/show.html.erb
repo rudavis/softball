@@ -1,10 +1,15 @@
 <div id="player">
 	<div id="card-front">
-		<img src="/images/rosie.png" />
+		<% if !@player.avatar_file_name %>
+			<img id="player-picture" src="/images/avatar_placeholder.png" />
+		<% else %>
+			<%= image_tag @player.avatar.url(:large) %>
+		<% end %>
 		<div class="player-name">
 			<%= @player.name %>
 		</div>
 		<br />
+		<%= link_to "Edit", edit_player_path(@player), :id =>"edit-player" %>		
 	</div>
 	<div id="player-stats">
 		<table id="name-position">

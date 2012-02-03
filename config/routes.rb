@@ -4,6 +4,11 @@ Softball::Application.routes.draw do
   
   resources :players do
     resources :games
+    member do
+      put 'upload'
+      put 'process_crop'
+      get 'crop'
+    end
   end
 
   root :to => "home#index"

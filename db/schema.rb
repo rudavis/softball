@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130150823) do
+ActiveRecord::Schema.define(:version => 20120202225246) do
 
   create_table "games", :force => true do |t|
     t.integer  "hits"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(:version => 20120130150823) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "crop_x"
+    t.integer  "crop_y"
+    t.integer  "crop_w"
+    t.integer  "crop_h"
   end
 
   add_index "players", ["email"], :name => "index_players_on_email", :unique => true

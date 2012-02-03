@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-	tabs = $('#tabs').tabs()
 	$('input').mouseup (e) -> e.preventDefault()
 	$('input:text').focus -> $(this).select()
 	$('#datepicker').datepicker('altField':'#game_date','altFormat':'yy-mm-dd')

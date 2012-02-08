@@ -11,7 +11,7 @@
 			triples = $("#game_triples"),
 			homeruns = $("#game_homeruns"),
 			allFields = $( [ ] ).add(hits).add(at_bats).add(singles).add(doubles).add(triples).add(homeruns),
-			tips = $(".validateTips");
+			tips = $(".validate-tips");
 		
 		function updateTips(t) {
 				tips.show();
@@ -63,38 +63,41 @@
 <% end %>
 
 <div id="player">
-	<div id="card-front">
-		<% if !@player.avatar_file_name %>
-			<img id="player-picture" src="/images/avatar_placeholder.png" />
-		<% else %>
-			<%= image_tag @player.avatar.url(:large) %>
-		<% end %>
-		<div class="player-name">
-			<%= @player.name %>
+	<div class="third">
+		<div class="card-front">
+			<% if !@player.avatar_file_name %>
+				<img id="player-picture" src="/images/avatar_placeholder.png" />
+			<% else %>
+				<%= image_tag @player.avatar.url(:large) %>
+			<% end %>
+			<div class="player-name">
+				<%= @player.name %>
+			</div>
 		</div>
-
 	</div>
-	<div id="player-stats">
-		<table id="name-position">
-			<tr>
-				<td>
-					<%= @player.name %>&nbsp;&nbsp;
-				</td>
-				<td id="position"><%= @player.position %></td>
-			</tr>
-		</table>
-		<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
-		<%= render :partial => "season_stats" %>
-		<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
-		<%= render :partial => "career_stats" %>
-		<div class="ui-widget-header ui-corner-all stats-head">Player Bio</div>
-		<%= render :partial => "bio" %>
+	<div class="two-thirds">
+		<div id="player-stats">
+			<table id="name-position">
+				<tr>
+					<td>
+						<%= @player.name %>&nbsp;&nbsp;
+					</td>
+					<td id="position"><%= @player.position %></td>
+				</tr>
+			</table>
+			<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
+			<%= render :partial => "season_stats" %>
+			<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
+			<%= render :partial => "career_stats" %>
+			<div class="ui-widget-header ui-corner-all stats-head">Player Bio</div>
+			<%= render :partial => "bio" %>
+		</div>
 	</div>
 </div>
 
 <br />
 <div class="score-board">
-	<p class="validateTips"></p>
+	<p class="validate-tips"></p>
 	<%= render :partial => "games/score_board_header" %>
 	<%= render :partial => "games/form" %>
 	<%= link_to "List Games", player_games_path(@player) %>

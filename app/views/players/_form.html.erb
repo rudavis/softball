@@ -10,22 +10,24 @@
       </ul>
     </div>
   <% end %>
+
 <div class="third">
-	<div id="player-pic">
-		<label for="player_avatar">Upload your picture</label> <br />
+	<div class="card-front">
 		<% if !@player.avatar_file_name %>
 			<img id="player-picture" src="/images/avatar_placeholder.png" />
 		<% else %>
-			<%= render :partial => 'uploaded_picture', :object => @player %>
+			<%= image_tag @player.avatar.url(:large) %>
 		<% end %>
-		<br />
+		<div class="player-name">
+			<%= @player.name %>
+		</div>
 	</div>
 	<div><%= f.file_field :avatar %></div>
 </div>
-
-<div class="third">
+<div class="two-thirds">
 	<div><%= f.label :name %> <span class="required"> * </span><br />
-	<%= f.text_field :name, :size => 45  %></div>
+	<%= f.text_field :name, :size => 40  %></div>
+	<br />
 	<div><%= f.label :bats %> <br />
 		<div class="options">
 			R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
@@ -33,6 +35,7 @@
 			SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
 		</div>
 	</div>
+	<br />
 	<div><%= f.label :throws %> <br />
 		<div class="options">
 			R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
@@ -40,11 +43,11 @@
 			SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
 		</div>
 	</div>
+	<br />
 	<div><%= f.label :notes %> <br />
 		<%= f.text_area :notes, :cols =>34, :rows => 5 %>
 	</div>
-</div>
-<div class="third">
+	<br />
 	<div><%= f.label :position %> <br />
 		<div id="baseball-field">
 			<ul id="outfield">
@@ -65,5 +68,6 @@
 		</div>
 	</div>
 </div>
+
 	<div style="clear:both"><%= f.submit "Update" %></div>
 <% end %>

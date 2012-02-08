@@ -3,9 +3,11 @@
 	
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 	  <%= devise_error_messages! %>
-
-	<div><%= f.label :email %><span class="required"> * </span><br />
-	<%= f.email_field :email, :size => 45  %></div>
+	
+	<div><%= f.label :email %><span class="required"> * </span>
+		<br />
+		<%= f.email_field :email, :size => 45  %>
+	</div>
 
 	<div><%= f.label :password %><span class="required"> * </span><br />
 	<%= f.password_field :password, :size => 45  %></div>

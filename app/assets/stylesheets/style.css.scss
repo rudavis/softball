@@ -71,30 +71,10 @@ input {
 	background-color: rgba(2,2,2,0.6);
 	min-height:350px;
 /*	margin-top:20px; */
+	padding: 10px 0px 10px 0px;
 	border-radius: 8px;
-	padding:10px ;
 }
-#example-cards {
-	background-image: url('/images/card-assets/tops_template.png');
-	background-repeat: no-repeat;
-	width: 26%;
-	height: 350px;
-	float:right;
-	margin-left: 10px;
-	img {
-		margin-left:22px;
-		margin-top:78px;
-		width: 205px;
-	}
-	.player-name {
-		text-align:center;
-		padding:0px;
-		margin-top:0px;
-		margin-left:22px;
-		width: 205px;
-		font-weight:bold;
-	}
-}
+
 #create-player {
 	text-align:left;
 }
@@ -161,13 +141,13 @@ input {
 }
 
 .third{
-	width:31%;
+	width:25%;
 	float:left;
 	display:inline;
 	padding:10px;
 }
 .two-thirds {
-	width:64%;
+	width:70%;
 	float:left;
 	display:inline;
 	padding:10px;
@@ -179,4 +159,94 @@ input {
 }
 .required {
 	color:red;
+}
+
+
+.card-front {
+	background-image: url('/images/card-assets/tops_template.png');
+	background-repeat: no-repeat;
+	min-height: 350px;
+	img {
+		margin-left:22px;
+		margin-top:78px;
+		width: 205px;
+	}
+	.player-name {
+		text-align:center;
+		margin-top:0px;
+		margin-left:22px;
+		width: 205px;
+		font-weight:bold;
+		font-size:13px;
+		line-height:16px;
+	}
+}
+
+#player-stats {
+	background-color:#000;
+	height: 350px;
+	color:#FFF;
+}
+#name-position {
+	margin:0px 10px 0px 10px;
+	padding:10px 0px 10px 0px;
+	width:97%;
+	td{
+		font-size:22pt;
+	}
+}
+#position {
+	text-align:right;
+}
+.stats-head {
+	margin:10px;
+	padding:10px;
+	border:none;
+	font-size:18pt;
+}
+.header th {
+	background-color:#CDCDCD;
+}
+.stats-table{
+	font-size: 10pt;
+	text-align: center;
+	margin-left:10px;
+}
+#player-bio .attribute {
+	text-align:right;
+	.value {
+		text-align:left;
+	}
+}
+#bio-notes {
+	font-size: 10pt;
+	float:right;
+	width: 75%;
+	text-align:left;
+	padding-right:10px;
+	
+}
+.score-board {
+	clear:both;
+	width:100%;
+	table {
+		background-image:url('/images/scoreboard/light_bg.png');
+		color:#fff;
+		text-align:center;
+		margin:auto;
+	}
+	th,td {
+		border:1px solid #DCDCDC;
+		padding:3px;
+		font-size:14px;
+		min-width:50px;
+	}
+	input {
+		background-image:url('/images/scoreboard/light_bg.png');
+		border: none;
+		color:#fff;
+		font-size:14px;
+		text-align:center;
+		padding:0px;
+	}
 }

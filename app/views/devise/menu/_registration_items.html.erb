@@ -1,5 +1,0 @@
-<% if player_signed_in? %>
-  <li><%= link_to 'Edit', edit_player_path(@player), :id =>"edit-player" %></li>
-<% else %>
-  <li><%= link_to('Sign Up', new_player_registration_path)  %></li>
-<% end %>

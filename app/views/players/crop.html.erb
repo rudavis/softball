@@ -1,13 +1,4 @@
 <% content_for(:head) do %>
-<style type="text/css">
-.two-thirds {
-	width:64%;
-	float:left;
-	display:inline;
-	padding:10px;
-	border:1px solid #fff;
-}
-</style>
 <script type="text/javascript">
 $(function() {
 	function update_crop(coords) {
@@ -31,7 +22,7 @@ $(function() {
     onChange: update_crop,
     onSelect: update_crop,
     setSelect: [0, 0, 500, 500],
-    aspectRatio: 205 / 230
+    aspectRatio: 205 / 232
   });
 });
 </script>

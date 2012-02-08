@@ -33,6 +33,7 @@ div {
 	background-color:rgba(239, 239, 239, 0.5);
 	color: red;
 }
+
 /***********/
 
 h2,h3 {
@@ -138,6 +139,7 @@ input {
 
 /* Signup page */
 .sign-in-block {
+	position:relative;
 	width:47%;
 	min-height:340px;
 	float:right;
@@ -163,5 +165,18 @@ input {
 	float:left;
 	display:inline;
 	padding:10px;
-	border:1px solid #fff;
+}
+.two-thirds {
+	width:64%;
+	float:left;
+	display:inline;
+	padding:10px;
+}
+.bottom {
+	position:absolute;
+	bottom: 10px;
+	left: 10px;
+}
+.required {
+	color:red;
 }

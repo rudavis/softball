@@ -1,42 +1,4 @@
-<div id="player">
-	<div id="card-front">
-		<% if !@player.avatar_file_name %>
-			<img id="player-picture" src="/images/avatar_placeholder.png" />
-		<% else %>
-			<%= image_tag @player.avatar.url(:large) %>
-		<% end %>
-		<div class="player-name">
-			<%= @player.name %>
-		</div>
-
-	</div>
-	<div id="player-stats">
-		<table id="name-position">
-			<tr>
-				<td>
-					<%= @player.name %>&nbsp;&nbsp;
-				</td>
-				<td id="position"><%= @player.position %></td>
-			</tr>
-		</table>
-		<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
-		<%= render :partial => "season_stats" %>
-		<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
-		<%= render :partial => "career_stats" %>
-		<div class="ui-widget-header ui-corner-all stats-head">Player Bio</div>
-		<%= render :partial => "bio" %>
-	</div>
-</div>
-
-<br />
-<div class="score-board">
-	<p class="validateTips"></p>
-	<%= render :partial => "games/score_board_header" %>
-	<%= render :partial => "games/form" %>
-	<%= link_to "List Games", player_games_path(@player) %>
-	<%= link_to "Edit", edit_player_registration_path %>
-</div>
-
+<% content_for(:head) do %>
 <script>
 	//<![CDATA[
 	$(function() {
@@ -53,7 +15,7 @@
 		
 		function updateTips(t) {
 				tips.show();
-				tips.text(t).addClass("ui-state-highlight");
+				tips.text(t).addClass("ui-state-error");
 		}
 		
 		function validateGame() {
@@ -95,8 +57,46 @@
 				$('#new_game').submit();
 			}			
 		})
-
-
 	});
 	//]]>
 </script>
+<% end %>
+
+<div id="player">
+	<div id="card-front">
+		<% if !@player.avatar_file_name %>
+			<img id="player-picture" src="/images/avatar_placeholder.png" />
+		<% else %>
+			<%= image_tag @player.avatar.url(:large) %>
+		<% end %>
+		<div class="player-name">
+			<%= @player.name %>
+		</div>
+
+	</div>
+	<div id="player-stats">
+		<table id="name-position">
+			<tr>
+				<td>
+					<%= @player.name %>&nbsp;&nbsp;
+				</td>
+				<td id="position"><%= @player.position %></td>
+			</tr>
+		</table>
+		<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
+		<%= render :partial => "season_stats" %>
+		<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
+		<%= render :partial => "career_stats" %>
+		<div class="ui-widget-header ui-corner-all stats-head">Player Bio</div>
+		<%= render :partial => "bio" %>
+	</div>
+</div>
+
+<br />
+<div class="score-board">
+	<p class="validateTips"></p>
+	<%= render :partial => "games/score_board_header" %>
+	<%= render :partial => "games/form" %>
+	<%= link_to "List Games", player_games_path(@player) %>
+	<%= link_to "Change Password", edit_player_registration_path %>
+</div>

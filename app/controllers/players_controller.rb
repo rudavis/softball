@@ -1,4 +1,6 @@
 class PlayersController < ApplicationController
+  before_filter :authenticate_player!
+  
 
   # GET /players
   # GET /players.json

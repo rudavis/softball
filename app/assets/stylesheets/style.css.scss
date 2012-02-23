@@ -74,6 +74,7 @@ input {
 	padding: 10px 0px 10px 0px;
 	border-radius: 8px;
 }
+#clear {clear:both;}
 
 #create-player {
 	text-align:left;
@@ -166,9 +167,11 @@ input {
 	background-image: url('/images/card-assets/tops_template.png');
 	background-repeat: no-repeat;
 	min-height: 350px;
+	overflow:hidden;
+	position:relative;
 	img {
 		margin-left:22px;
-		margin-top:78px;
+		margin-top:77px;
 		width: 205px;
 	}
 	.player-name {

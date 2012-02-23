@@ -1,6 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-rosie_roo:
+one:
+    email: test@test.com
+    encrypted_password: 123456
     name: Rosie Roo
     bats: Right
     throws: Right
@@ -8,7 +10,9 @@ rosie_roo:
     notes: 
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut. 
 
-russ_the_buss:
+two:
+    email: test2@test.com
+    encrypted_password: 123456
     name: Russ the Bus
     bats: Left
     throws: Left

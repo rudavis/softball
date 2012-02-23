@@ -1,11 +1,23 @@
 <div class="sign-in-block">
 	<h2>Sign in</h2>
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-		<div><%= f.label :email %><br />
-		<%= f.email_field :email, :size => 45 %></div>
+		<% if flash[:alert] %>
+			<div id="error_explanation">
+		      <h2><%= alert %></h2>
+		      <ul>
+		        <li>Check the email address or password you provided</li>
+				<li>Or maybe you <%= link_to "forgot your password?", new_password_path(resource_name) %></li>
+		      </ul>
+		    </div>
+		<% end %>
+		
+		<div><label>Email</label><span class="required"> * </span>
+			<br />
+			<%= f.email_field :email, :size => 45 %></div>
 
-		<div><%= f.label :password %><br />
-		<%= f.password_field :password, :size => 45 %></div>
+		<div><label>Password</label><span class="required"> * </span>
+			<br />
+			<%= f.password_field :password, :size => 45 %></div>
 		
 		<div>
 			<% if devise_mapping.rememberable? -%>

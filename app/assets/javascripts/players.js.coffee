@@ -9,3 +9,4 @@ $ ->
 	$('#edit-player').button(icons:(secondary: 'ui-icon-wrench'),text: true)
 	$('.fake-button').button()
 	$('#get-started').button(icons:(secondary: 'ui-icon-circle-arrow-e'))
+	$('#submit_game').button()

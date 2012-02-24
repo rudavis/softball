@@ -8,6 +8,7 @@ Softball::Application.routes.draw do
       put 'upload'
       put 'process_crop'
       get 'crop'
+      get 'print_card'
     end
   end
 

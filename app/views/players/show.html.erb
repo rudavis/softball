@@ -10,7 +10,7 @@
 			doubles = $("#game_doubles"),
 			triples = $("#game_triples"),
 			homeruns = $("#game_homeruns"),
-			allFields = $( [ ] ).add(hits).add(at_bats).add(singles).add(doubles).add(triples).add(homeruns),
+			allFields = $( [ ] ).add(name).add(date).add(hits).add(at_bats).add(singles).add(doubles).add(triples).add(homeruns),
 			tips = $(".validate-tips");
 		
 		function updateTips(t) {
@@ -26,6 +26,12 @@
 			if (at_bats.val() == "0") {
 				at_bats.parent().addClass("ui-state-error");
 				updateTips("You didn't enter any at bats!");
+				return false;
+			}
+			
+			if (jQuery.datepicker.parseDate('yy-mm-dd',date.val()) == null ) {
+				date.parent().addClass("ui-state-error");
+				updateTips("Date is required!");
 				return false;
 			}
 			
@@ -47,7 +53,7 @@
 				return true;
 			}
 		}
-	
+		
 		$('#submit_game').click(function() {
 			var bValid = true;
 
@@ -96,7 +102,7 @@
 			<div id="card-options-wrapper" class="ui-widget">
 				<ul>
 					<li class="ui-icon ui-state-default ui-corner-all">
-						<a href ="#" class="ui-icon ui-icon-print">Edit</a>
+						<%= link_to "Print", print_card_player_path(@player), :class => "ui-icon ui-icon-print", :target => "_blank" %>
 					</li>
 					<li class="ui-icon ui-state-default ui-corner-all">
 						<a href ="#" class="ui-icon ui-icon-gear">Edit</a>

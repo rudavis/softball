@@ -3,6 +3,8 @@ class Game < ActiveRecord::Base
   
   validates :at_bats, :runs, :hits, :singles, :doubles, :triples, :homeruns, :rbis, :walks, 
     :numericality => { :only_integer => true }, :length => { :maximum => 3 }
+  validates :date, :presence => true
+  
 
     def total_bases
       self.singles + self.doubles * 2 + self.triples * 3 + self.homeruns * 4

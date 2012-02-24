@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_filter :authenticate_player!
+  layout :resolve_layout
   
 
   # GET /players
@@ -29,6 +30,15 @@ class PlayersController < ApplicationController
       format.json { render json: @player }
     end
   end
+  
+  def print_card
+    @player = Player.find(params[:id])
+
+    respond_to do |format|
+      format.html # print.html.erb
+      format.json { render json: @player }
+    end
+  end 
 
   # GET /players/new
   # GET /players/new.json
@@ -138,6 +148,16 @@ class PlayersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to players_url }
       format.json { head :ok }
+    end
+  end
+  
+  private
+  def resolve_layout
+    case action_name
+    when "print_card"
+      "print_card"
+    else
+      "application"
     end
   end
 end

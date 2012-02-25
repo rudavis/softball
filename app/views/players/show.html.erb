@@ -63,6 +63,20 @@
 				$('#new_game').submit();
 			}			
 		});
+				
+		$('#show-all-games').click(function() {
+			if ($('#show-all-games').text() == "Show all") {
+				//All games are currently hidden
+				//Show game list
+				$('#all-my-games').show();
+				//Change text to Hide all
+				$('#show-all-games').text("Hide all")
+			} else {
+				$('#all-my-games').hide();
+				//Change text to Show all
+				$('#show-all-games').text("Show all")
+			}
+		});
 	});
 	//]]>
 </script>
@@ -73,13 +87,16 @@
 		<div id="card" class="card-front">
 			<div id="card-options-wrapper" class="ui-widget ui-helper-clearfix">
 				<ul>
-					<li class="ui-state-default ui-corner-all">
-						<%= link_to "Print", print_card_player_path(@player), :class => "ui-icon ui-icon-print", :target => "_blank" %>
+					<li class="ui-state-default ui-corner-all" title="Print your card">
+						<%= link_to "Print", print_card_player_path(@player), :class => "ui-icon ui-icon-print", :target => "_blank"%>
 					</li>
-					<li class="ui-state-default ui-corner-all">
+					<li class="ui-state-default ui-corner-all" title="Edit your info">
 						<%= link_to "Edit Player", edit_player_path(@player), :class => "ui-icon ui-icon-wrench" %>
 					</li>
-					<li class="ui-state-default ui-corner-all">
+					<li class="ui-state-default ui-corner-all" title="Change your password">
+						<%= link_to "Change password", edit_player_registration_path, :class => "ui-icon ui-icon-locked" %>
+					</li>					
+					<li class="ui-state-default ui-corner-all" title="Upload a picture">
 						<a href="#" class="ui-icon ui-icon-image">Upload image</a>
 					</li>					
 				</ul>
@@ -117,8 +134,15 @@
 <br />
 <div class="score-board">
 	<p class="validate-tips"></p>
-	<%= render :partial => "games/score_board_header" %>
-	<%= render :partial => "games/form" %>
-	<%= link_to "List Games", player_games_path(@player) %>
-	<%= link_to "Change Password", edit_player_registration_path %>
+	<table cellspacing="0" cellpadding="0">
+		<thead>
+			<%= render :partial => "games/score_board_header" %>
+		</thead>
+		<tbody>
+			<%= render :partial => "games/form" %>
+		</tbody>
+		<tbody id="all-my-games" style="display:none">
+			<%= render :partial => "games/game", :locals => {:games => @player.games } %>
+		</tbody>
+	</table>
 </div>

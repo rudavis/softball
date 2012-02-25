@@ -17,8 +17,12 @@ $ ->
 		-> $(this).addClass('ui-state-hover') 
 		-> $(this).removeClass('ui-state-hover')
 	)
+
+#Tooltip on card options
+	$('#card-options-wrapper li').tipTip('delay':100)
+	
 #fade in and out the bar over the player card
 	$('#card').hover(
 		-> $('#card-options-wrapper').fadeIn()
 		-> $('#card-options-wrapper').fadeOut();
-	)
+	)	

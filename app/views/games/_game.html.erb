@@ -1,8 +1,8 @@
-<tbody>
-<% @games.each do |game| %>
+
+<% games.each do |game| %>
 <tr>
-	<td><%= game.team_name %></td>
-	<td><%= game.date %></td>
+	<td style="text-align:left"><%= game.team_name %></td>
+	<td style="text-align:left"><%= game.date %></td>
 	<td><%= game.hits %></td>		
 	<td><%= game.at_bats %></td>
 	<td><%= game.runs %></td>
@@ -13,8 +13,6 @@
 	<td><%= game.rbis %></td>
 	<td><%= game.walks %></td>
 	<td><%= game.strike_outs %></td>
-	<td><%= link_to "Edit", edit_player_game_path(:player_id => game.player_id, :id => game.id) %>
+	<td></td>
 </tr>
 <% end %>
-</tbody>
-</table>

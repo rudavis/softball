@@ -12,20 +12,6 @@ class Player < ActiveRecord::Base
 
   has_many :games
   
-  def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-  end
-  
-  def reset_crop
-    self.crop_w = nil
-
-  end
-  
-  def avatar_geometry(style = :original)
-    @geometry ||= {}
-    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
-  end
-  
   def at_bats
     games.all.sum(&:at_bats)
   end 
@@ -71,7 +57,20 @@ class Player < ActiveRecord::Base
   def on_base_percentage
     (self.hits + self.walks) / (self.total_bases + self.walks).to_f
   end
+
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
   
+  def reset_crop
+    self.crop_w = nil
+  end
+  
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
+  end
+    
   private
     def reprocess_avatar
       avatar.reprocess!

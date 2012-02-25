@@ -1,24 +1,20 @@
-
-	<tbody>
-		<%= form_for ([@player, @player.games.build]) do |f| %>
-			<tr>
-				<td><%= f.text_field :team_name, :size => 18, :style =>'text-align:left', :value => @last_team_name %></td>
-				<td>
-					<input id="datepicker" type="text" size="11" style="text-align:left" value="Game Date" />
-					<%= f.hidden_field 'date' %>
-				</td>
-				<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		
-				<td><%= f.text_field :at_bats, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :runs, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :singles, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :doubles, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :triples, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :homeruns, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :rbis, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :walks, :size => 3, :value => 0 %></td>
-				<td><%= f.text_field :strike_outs, :size => 3, :value => 0 %></td>
-				<td><a href="#" id="submit_game" class="fake-button">Add Game</a></td>
-		<% end %>
-			</tr>
-	</tbody>
-</table>
+<%= form_for ([@player, @player.games.build]) do |f| %>
+	<tr>
+		<td><%= f.text_field :team_name, :size => 18, :style =>'text-align:left', :value => @last_team_name %></td>
+		<td>
+			<input id="datepicker" type="text" size="11" style="text-align:left" value="Game Date" />
+			<%= f.hidden_field 'date' %>
+		</td>
+		<td><%= f.text_field :hits, :size => 3, :value => 0 %></td>		
+		<td><%= f.text_field :at_bats, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :runs, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :singles, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :doubles, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :triples, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :homeruns, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :rbis, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :walks, :size => 3, :value => 0 %></td>
+		<td><%= f.text_field :strike_outs, :size => 3, :value => 0 %></td>
+		<td><a href="#" id="submit_game" class="fake-button">Add Game</a></td>
+	</tr>
+<% end %>

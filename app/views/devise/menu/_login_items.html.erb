@@ -1,5 +1,5 @@
 <% if player_signed_in? %>
-  <li><%= link_to 'Edit Player', edit_player_path(@player), :id =>"edit-player" %></li>
+  <li><%= link_to 'Edit Player', edit_player_path(@player), :id =>"edit-player", :class =>"fake-button" %></li>
   <li><%= link_to('Logout', destroy_player_session_path, :method => :delete, :class =>"fake-button") %></li>
 <% else %>
   <li><%= link_to('Sign In', new_player_session_path, :class =>"fake-button") %></li>

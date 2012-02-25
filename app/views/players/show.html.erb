@@ -62,51 +62,26 @@
 			if (bValid) {
 				$('#new_game').submit();
 			}			
-		})
-		$('#card').hover(
-			function () {
-				$('#card-options-wrapper').fadeIn();
-			},
-			function () {
-				$('#card-options-wrapper').fadeOut();
-			});			
+		});
 	});
 	//]]>
 </script>
 <% end %>
-<style type="text/css">
-#card-options-wrapper{
-	position:absolute;
-	display:none;
-	background-color:#696969;
-	width:247px;
-	height:35px;
-	opacity:.8;
-	filter:alpha(opacity=80); /* For IE8 and earlier */	
-}
-#card-options-wrapper ul{
-	list-style-type:none;
-}
-#card-options-wrapper li{
-	float:right;
-	width:16px;
-	padding:3px;
-	margin:5px 3px 5px;
-	opacity:1.0;
-}
-</style>
 
 <div id="player">
 	<div class="third">
 		<div id="card" class="card-front">
-			<div id="card-options-wrapper" class="ui-widget">
+			<div id="card-options-wrapper" class="ui-widget ui-helper-clearfix">
 				<ul>
-					<li class="ui-icon ui-state-default ui-corner-all">
+					<li class="ui-state-default ui-corner-all">
 						<%= link_to "Print", print_card_player_path(@player), :class => "ui-icon ui-icon-print", :target => "_blank" %>
 					</li>
-					<li class="ui-icon ui-state-default ui-corner-all">
-						<a href ="#" class="ui-icon ui-icon-gear">Edit</a>
+					<li class="ui-state-default ui-corner-all">
+						<%= link_to "Edit Player", edit_player_path(@player), :class => "ui-icon ui-icon-wrench" %>
 					</li>
+					<li class="ui-state-default ui-corner-all">
+						<a href="#" class="ui-icon ui-icon-image">Upload image</a>
+					</li>					
 				</ul>
 			</div>
 			<% if !@player.avatar_file_name %>

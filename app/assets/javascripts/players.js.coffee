@@ -9,4 +9,16 @@ $ ->
 	$('#edit-player').button(icons:(secondary: 'ui-icon-wrench'),text: true)
 	$('.fake-button').button()
 	$('#get-started').button(icons:(secondary: 'ui-icon-circle-arrow-e'))
+
 	$('#submit_game').button()
+
+#hover states on the static widgets
+	$('#card-options-wrapper li').hover( 
+		-> $(this).addClass('ui-state-hover') 
+		-> $(this).removeClass('ui-state-hover')
+	)
+#fade in and out the bar over the player card
+	$('#card').hover(
+		-> $('#card-options-wrapper').fadeIn()
+		-> $('#card-options-wrapper').fadeOut();
+	)

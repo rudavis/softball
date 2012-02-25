@@ -22,6 +22,13 @@ a {
     color: #FFA500; }
   &:hover {
     color: #FF0000;} }
+a.fake-button {
+  color: #FFFFFF;
+  &:visited {
+    color: #FFFFFF; }
+  &:hover {
+    color: #1A1A1A;} }
+
 div {
   &.field, &.actions {
     margin-bottom: 10px; } }
@@ -182,6 +189,26 @@ input {
 		font-weight:bold;
 		font-size:13px;
 		line-height:16px;
+	}
+}
+
+#card-options-wrapper{
+	position:absolute;
+	display:none;
+	background-color:#696969;
+	width:247px;
+	height:35px;
+	opacity:.8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */	
+	ul{
+		list-style-type:none;
+	}
+	li{
+		float:right;
+		width:16px;
+		padding:3px;
+		margin:5px 3px 5px;
+		opacity:1.0;
 	}
 }
 

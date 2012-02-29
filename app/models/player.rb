@@ -10,44 +10,56 @@ class Player < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :position, :bats, :throws, :notes, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
 
-  has_many :games
+  has_many :games, :order => "date desc"
   
-  def at_bats
-    games.all.sum(&:at_bats)
+  def at_bats(*yr)
+    yr.first.blank? ? games.all.sum(&:at_bats) : games.for_year(yr.first).sum(:at_bats)
   end 
-  def runs
-    games.all.sum(&:runs)
+  
+  def runs(*yr)
+    yr.first.blank? ? games.all.sum(&:runs) : games.for_year(yr.first).sum(:runs)
   end  
-  def hits
-    games.all.sum(&:hits)
+  
+  def hits(*yr)
+    yr.first.blank? ? games.all.sum(&:hits) : games.for_year(yr.first).sum(:hits)
   end
-  def singles
-    games.all.sum(&:singles)
+  
+  def singles(*yr)
+    yr.first.blank? ? games.all.sum(&:singles) : games.for_year(yr.first).sum(:singles)
   end  
-  def doubles
-    games.all.sum(&:doubles)
+  
+  def doubles(*yr)
+    yr.first.blank? ? games.all.sum(&:doubles) : games.for_year(yr.first).sum(:doubles)
   end
-  def triples
-    games.all.sum(&:triples)
+  
+  def triples(*yr)
+    yr.first.blank? ? games.all.sum(&:triples) : games.for_year(yr.first).sum(:triples)
   end  
-  def homeruns
-    games.all.sum(&:homeruns)
+  
+  def homeruns(*yr)
+    yr.first.blank? ? games.all.sum(&:homeruns) : games.for_year(yr.first).sum(:homeruns)
   end
-  def rbis
-    games.all.sum(&:rbis)
+  
+  def rbis(*yr)
+    yr.first.blank? ? games.all.sum(&:rbis) : games.for_year(yr.first).sum(:rbis)
   end  
-  def walks
-    games.all.sum(&:walks)
+
+  def walks(*yr)
+    yr.first.blank? ? games.all.sum(&:walks) : games.for_year(yr.first).sum(:walks)
   end  
-  def strike_outs
-    games.all.sum(&:strike_outs)
+  
+  def strike_outs(*yr)
+    yr.first.blank? ? games.all.sum(&:strike_outs) : games.for_year(yr.first).sum(:strike_outs)
   end  
+
+  def num_games(*yr)
+    yr.first.blank? ? games.count : games.for_year(yr.first).count
+  end
+  
   def total_bases
     self.singles + self.doubles*2 + self.triples*3 + self.homeruns*4
   end
-  def num_games
-    games.count
-  end
+
   def batting_average
     self.hits / self.at_bats.to_f
   end

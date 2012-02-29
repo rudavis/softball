@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
   belongs_to :player
+  scope :for_year, lambda {|year| where("date >= ? and date <= ?", "#{year}-01-01", "#{year}-12-31")}
   
   validates :at_bats, :runs, :hits, :singles, :doubles, :triples, :homeruns, :rbis, :walks, 
     :numericality => { :only_integer => true }, :length => { :maximum => 3 }

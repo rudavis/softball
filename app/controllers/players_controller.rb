@@ -21,6 +21,8 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     if @player.games.count >= 1
       @last_team_name = @player.games.find(:last).team_name
+      @year = @player.games.first.date.year
+      @newest_year = @player.games.last.date.year
     else
       @last_team_name = "Your team names"
     end

@@ -19,22 +19,27 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>2012</td>
-			<td><%= @player.num_games(2012) %></td>
-			<td><%= to_ba(@player.batting_average(2012).to_s) %></td>
-			<td><%= @player.at_bats(2012) %></td>
-			<td><%= @player.runs(2012) %></td>
-			<td><%= @player.hits(2012) %></td>
-			<td><%= @player.singles(2012) %></td>
-			<td><%= @player.doubles(2012) %></td>
-			<td><%= @player.triples(2012) %></td>
-			<td><%= @player.homeruns(2012) %></td>
-			<td><%= @player.rbis(2012) %></td>
-			<td><%= @player.walks(2012) %></td>
-			<td><%= @player.strike_outs(2012) %></td>
-			<td><%= number_with_precision(@player.slugging_percentage(2012), :precision => 3) %></td>
-			<td><%= number_with_precision(@player.on_base_percentage(2012), :precision => 3) %></td>
-		</tr>
+		<% while @year <= @newest_year %>
+			<% if @player.num_games(@year) >= 1 %>
+				<tr>
+					<td><%= @year.to_s %></td>
+					<td><%= @player.num_games(@year) %></td>
+					<td><%= to_ba(@player.batting_average(@year).to_s) %></td>
+					<td><%= @player.at_bats(@year) %></td>
+					<td><%= @player.runs(@year) %></td>
+					<td><%= @player.hits(@year) %></td>
+					<td><%= @player.singles(@year) %></td>
+					<td><%= @player.doubles(@year) %></td>
+					<td><%= @player.triples(@year) %></td>
+					<td><%= @player.homeruns(@year) %></td>
+					<td><%= @player.rbis(@year) %></td>
+					<td><%= @player.walks(@year) %></td>
+					<td><%= @player.strike_outs(@year) %></td>
+					<td><%= number_with_precision(@player.slugging_percentage(@year), :precision => 3) %></td>
+					<td><%= number_with_precision(@player.on_base_percentage(@year), :precision => 3) %></td>
+				</tr>
+			<% end %>
+			<% @year += 1 %>
+		<% end %>
 	</tbody>			
 </table>

@@ -121,32 +121,15 @@
 					<td id="position"><%= @player.position %></td>
 				</tr>
 			</table>
-<%
-=begin %>
-# Need to figure out how to print season stats for all the seasons for a player.
-
-# Games are sorted oldest to newest.
-# get the oldest year and newest years
-oldest_yr = @player.games.first.date.year
-newest_yr = @player.games.last.date.year
-
-while oldest_yr <= newest_yr do
-
-# Check to see if there are any games for that year
-	if @player.num_games(oldest_yr) >= 1	
-
-		# print out all the season stats
-		@player.at_bats(oldest_yr)
-		...
-	end	
-	oldest_yr += 1
-end	
-<% 
-=end %>		
-			<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
-			<%= render :partial => "season_stats" %>
-			<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
-			<%= render :partial => "career_stats" %>
+			<% if @player.num_games > 0 %>	
+				<div class="ui-widget-header ui-corner-all stats-head">Season Stats</div>
+				<%= render :partial => "season_stats" %>
+				<div class="ui-widget-header ui-corner-all stats-head">Career Stats</div>
+				<%= render :partial => "career_stats" %>
+			<% else %>
+				<div class="ui-widget-header ui-corner-all stats-head">Let's Get Started</div>
+				<%= render :partial => "no_games" %>
+			<% end %>
 			<div class="ui-widget-header ui-corner-all stats-head">Player Bio</div>
 			<%= render :partial => "bio" %>
 		</div>

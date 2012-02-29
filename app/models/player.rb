@@ -10,7 +10,7 @@ class Player < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :position, :bats, :throws, :notes, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
 
-  has_many :games, :order => "date desc"
+  has_many :games, :order => "date asc"
   
   def at_bats(*yr)
     yr.first.blank? ? games.all.sum(&:at_bats) : games.for_year(yr.first).sum(:at_bats)
@@ -56,18 +56,18 @@ class Player < ActiveRecord::Base
     yr.first.blank? ? games.count : games.for_year(yr.first).count
   end
   
-  def total_bases
-    self.singles + self.doubles*2 + self.triples*3 + self.homeruns*4
+  def total_bases(*yr)
+    yr.first.blank? ? self.singles + self.doubles*2 + self.triples*3 + self.homeruns*4 : self.singles(yr.first) + self.doubles(yr.first)*2 + self.triples(yr.first)*3 + self.homeruns(yr.first)*4
   end
 
-  def batting_average
-    self.hits / self.at_bats.to_f
+  def batting_average(*yr)
+    yr.first.blank? ? self.hits / self.at_bats.to_f : self.hits(yr.first) / self.at_bats(yr.first).to_f
   end
-  def slugging_percentage
-    self.total_bases / self.at_bats.to_f
+  def slugging_percentage(*yr)
+    yr.first.blank? ? self.total_bases / self.at_bats.to_f : self.total_bases(yr.first) / self.at_bats(yr.first).to_f
   end
-  def on_base_percentage
-    (self.hits + self.walks) / (self.total_bases + self.walks).to_f
+  def on_base_percentage(*yr)
+    yr.first.blank? ? (self.hits + self.walks) / (self.total_bases + self.walks).to_f : (self.hits(yr.first) + self.walks(yr.first)) / (self.total_bases(yr.first) + self.walks(yr.first)).to_f
   end
 
   def cropping?

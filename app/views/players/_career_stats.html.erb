@@ -1,28 +1,24 @@
 <table id="career-stats" class="stats-table" cellspacing="0px" cellpadding="0px" width="97%">
 	<thead>
 		<tr class="header">
-			<th>YR</th>
-			<th>Team</th>
-			<th>G</th>
-			<th>AVG</th>
-			<th>AB</th>
-			<th>R</th>
-			<th>H</th>
-			<th>1B</th>
-			<th>2B</th>
-			<th>3B</th>
-			<th>HR</th>
-			<th>RBI</th>
-			<th>BB</th>
-			<th>K</th>
-			<th>SLG</th>
-			<th>OB %</th>				
+			<th title="Games">G</th>
+			<th title="Batting Average">AVG</th>
+			<th title="At Bats">AB</th>
+			<th title="Runs">R</th>
+			<th title="Hits">H</th>
+			<th title="Singles">1B</th>
+			<th title="Doubles">2B</th>
+			<th title="Triples">3B</th>
+			<th title="Homeruns">HR</th>
+			<th title="Runners Batted In">RBI</th>
+			<th title="Base on Balls">BB</th>
+			<th title="Strike Outs">K</th>
+			<th title="Slugging Percentage">SLG</th>
+			<th title="On Base Percentage">OB %</th>											
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>YR</td>
-			<td>Team</td>
 			<td><%= @player.num_games %></td>
 			<td><%= to_ba(@player.batting_average.to_s) %></td>
 			<td><%= @player.at_bats %></td>

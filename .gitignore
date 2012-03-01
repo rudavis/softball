@@ -20,3 +20,6 @@
 
 # Ignore locally uploaded images
 /public/system/avatars/*
+
+#Ingnore my secret keys file
+/config/heroku_env.rb

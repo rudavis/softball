@@ -5,8 +5,18 @@ class Player < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   # Paperclip image
-  has_attached_file :avatar, :styles => { :thumb => "200x200>", :large => "500x500>" }, :processors => [:cropper]
+  has_attached_file :avatar, 
+    :storage => :s3,
+    :s3_credentials => {
+      :access_key_id => ENV['S3_KEY'], 
+      :secret_access_key => ENV['S3_SECRET']
+    },
+    :bucket => 'makemeabaseballcard',
+    :path => ":attachment/:id/:style.:extension",
+    :styles => { :thumb => "200x200>", :large => "500x500>" }, 
+    :processors => [:cropper]
   after_update :reprocess_avatar, :if => :cropping?
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :position, :bats, :throws, :notes, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
 
@@ -80,7 +90,8 @@ class Player < ActiveRecord::Base
   
   def avatar_geometry(style = :original)
     @geometry ||= {}
-    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
+    path = (avatar.options[:storage]==:s3) ? avatar.url(style) : avatar.path(style)
+    @geometry[style] ||= Paperclip::Geometry.from_file(path)
   end
     
   private

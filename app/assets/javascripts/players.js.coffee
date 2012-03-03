@@ -22,6 +22,7 @@ $ ->
 	$('#card-options-wrapper li').tipTip('delay':100)
 	$('.stats-table th').tipTip('delay':100, 'defaultPosition':'top')
 	$('.scoreboard th').tipTip('delay':100, 'defaultPosition':'top')
+	$('#baseball-field input').tipTip('delay':100, 'defaultPosition':'top')	
 	
 #fade in and out the bar over the player card
 	$('#card').hover(

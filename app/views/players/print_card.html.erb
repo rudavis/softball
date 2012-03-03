@@ -1,0 +1,85 @@
+<table cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr>
+			<td>
+				<div id="card" class="card-front">
+					<% if !@player.avatar_file_name %>
+						<img id="player-picture" src="/images/avatar_placeholder.png" />
+					<% else %>
+						<%= image_tag @player.avatar.url(:large) %>
+					<% end %>
+					<div class="player-name">
+						<%= @player.name %>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div id="card-back">
+					<div id="print-name-position">
+						<div id="print-position">
+							<%= @player.position %>
+						</div>
+						<div id="print-player-name">
+							<%= @player.name %>
+						</div>
+					</div>
+					<br />
+					<table id="back-of-card-stats" cellspacing="0px" cellpadding="0px">
+						<thead>
+							<tr class="header-row">
+								<th style="text-align:left">YR</th>
+								<th>H</th>			
+								<th>AB</th>
+								<th>AVG</th>
+								<th>R</th>
+								<th>1B</th>
+								<th>2B</th>
+								<th>3B</th>
+								<th>HR</th>
+								<th>RBI</th>
+								<th>K</th>
+								<th>BB</th>
+								<th>SLG</th>
+								<th>OB</th>								
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-align:left">1234</td>
+								<td>12</td>
+								<td>12</td>
+								<td>.123</td>
+								<td>23</td>
+								<td>23</td>
+								<td>23</td>
+								<td>23</td>
+								<td>23</td>
+								<td>23</td>
+								<td>23</td>
+								<td>23</td>
+								<td>.123</td>
+								<td>.123</td>
+							</tr>
+							<tr class="footer-row">
+								<td style="text-align:left">TOTAL</td>
+								<td><%= @player.hits %></td>
+								<td><%= @player.at_bats %></td>
+								<td><%= to_ba(@player.batting_average.to_s) %></td>
+								<td><%= @player.runs %></td>
+								<td><%= @player.singles %></td>
+								<td><%= @player.doubles %></td>
+								<td><%= @player.triples %></td>
+								<td><%= @player.homeruns %></td>
+								<td><%= @player.rbis %></td>
+								<td><%= @player.strike_outs %></td>
+								<td><%= @player.walks %></td>
+								<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
+								<td><%= number_with_precision(@player.on_base_percentage, :precision => 3) %></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>

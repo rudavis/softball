@@ -30,17 +30,17 @@
 	<br />
 	<div><%= f.label :bats %> <br />
 		<div class="options">
-			R:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
-			L:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
-			SW:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
+			Right:<%= f.radio_button(:bats,"Right") %>&nbsp;&nbsp;
+			Left:<%= f.radio_button(:bats,"Left") %>&nbsp;&nbsp;
+			Switch:<%= f.radio_button(:bats,"Switch") %>&nbsp;&nbsp;
 		</div>
 	</div>
 	<br />
 	<div><%= f.label :throws %> <br />
 		<div class="options">
-			R:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
-			L:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
-			SW:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
+			Right:<%= f.radio_button(:throws,"Right") %>&nbsp;&nbsp;
+			Left:<%= f.radio_button(:throws,"Left") %>&nbsp;&nbsp;
+			Switch:<%= f.radio_button(:throws,"Switch") %>&nbsp;&nbsp;
 		</div>
 	</div>
 	<br />
@@ -51,19 +51,19 @@
 	<div><%= f.label :position %> <br />
 		<div id="baseball-field">
 			<ul id="outfield">
-				<li id="RF"><%= f.radio_button(:position,"RF") %></li>
-				<li id="CF"><%= f.radio_button(:position,"CF") %></li>
-				<li id="LF"><%= f.radio_button(:position,"LF") %></li>
+				<li id="RF"><%= f.radio_button(:position,"RF", :title => "Right Field") %></li>
+				<li id="CF"><%= f.radio_button(:position,"CF", :title => "Center Field") %></li>
+				<li id="LF"><%= f.radio_button(:position,"LF", :title => "Left Field") %></li>
 			</ul>
 			<ul id="infield">
-				<li id="first"><%= f.radio_button(:position,"1B") %></li>
-				<li id="second"><%= f.radio_button(:position,"2B") %></li>
+				<li id="first"><%= f.radio_button(:position,"1B", :title => "First Base") %></li>
+				<li id="second"><%= f.radio_button(:position,"2B", :title => "Second Base") %></li>
 				<li>
-					<div id="pitch"><%= f.radio_button(:position,"P") %></div>
-					<div id="catch"><%= f.radio_button(:position,"C") %></div>
+					<div id="pitch"><%= f.radio_button(:position,"P", :title => "Pitcher") %></div>
+					<div id="catch"><%= f.radio_button(:position,"C", :title => "Catcher") %></div>
 				</li>
-				<li id="short"><%= f.radio_button(:position,"SS") %></li>
-				<li id="third"><%= f.radio_button(:position,"3B") %></li>
+				<li id="short"><%= f.radio_button(:position,"SS", :title => "Shortstop") %></li>
+				<li id="third"><%= f.radio_button(:position,"3B", :title => "Third Base") %></li>
 			</ul>
 		</div>
 	</div>

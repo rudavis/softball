@@ -11,7 +11,7 @@ class Player < ActiveRecord::Base
       :access_key_id => ENV['S3_KEY'], 
       :secret_access_key => ENV['S3_SECRET']
     },
-    :bucket => 'makemeabaseballcard',
+    :bucket => ENV['S3_BUCKET'],
     :path => ":attachment/:id/:style.:extension",
     :styles => { :thumb => "200x200>", :large => "500x500>" }, 
     :processors => [:cropper]

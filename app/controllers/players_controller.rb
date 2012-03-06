@@ -24,7 +24,7 @@ class PlayersController < ApplicationController
       @year = @player.games.first.date.year
       @newest_year = @player.games.last.date.year
     else
-      @last_team_name = "Your team names"
+      @last_team_name = "Your team name"
     end
 
     respond_to do |format|
@@ -35,6 +35,8 @@ class PlayersController < ApplicationController
   
   def print_card
     @player = Player.find(params[:id])
+    @year = @player.games.first.date.year
+    @newest_year = @player.games.last.date.year
 
     respond_to do |format|
       format.html # print.html.erb

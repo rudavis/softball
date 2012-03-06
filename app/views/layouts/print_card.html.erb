@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Print Your Card</title>
-  <%= stylesheet_link_tag "style", "print" %>
+  	<%= stylesheet_link_tag "print", :media => "print" %>
+	<%= stylesheet_link_tag "print-screen", :media=>"screen" %>
 </head>
 <body>
 	<%= yield %>

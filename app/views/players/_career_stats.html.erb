@@ -20,7 +20,7 @@
 	<tbody>
 		<tr>
 			<td><%= @player.num_games %></td>
-			<td><%= to_ba(@player.batting_average.to_s) %></td>
+			<td><%= to_ba(number_with_precision(@player.batting_average, :precision => 3)) %></td>
 			<td><%= @player.at_bats %></td>
 			<td><%= @player.runs %></td>
 			<td><%= @player.hits %></td>
@@ -31,8 +31,8 @@
 			<td><%= @player.rbis %></td>
 			<td><%= @player.walks %></td>
 			<td><%= @player.strike_outs %></td>
-			<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
-			<td><%= number_with_precision(@player.on_base_percentage, :precision => 3) %></td>
+			<td><%= to_ba(number_with_precision(@player.slugging_percentage, :precision => 3)) %></td>
+			<td><%= to_ba(number_with_precision(@player.on_base_percentage, :precision => 3)) %></td>
 		</tr>
 	</tbody>			
 </table>

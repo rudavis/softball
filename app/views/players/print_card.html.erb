@@ -53,7 +53,7 @@
 										<td><%= @year.to_s %></td>
 										<td><%= @player.hits(@year) %></td>
 										<td><%= @player.at_bats(@year) %></td>
-										<td><%= to_ba(@player.batting_average(@year).to_s) %></td>
+										<td><%= to_ba(number_with_precision(@player.batting_average(@year), :precision => 3)) %></td>
 										<td><%= @player.runs(@year) %></td>
 										<td><%= @player.singles(@year) %></td>
 										<td><%= @player.doubles(@year) %></td>
@@ -62,8 +62,8 @@
 										<td><%= @player.rbis(@year) %></td>
 										<td><%= @player.strike_outs(@year) %></td>
 										<td><%= @player.walks(@year) %></td>
-										<td><%= number_with_precision(@player.slugging_percentage(@year), :precision => 3) %></td>
-										<td><%= number_with_precision(@player.on_base_percentage(@year), :precision => 3) %></td>
+										<td><%= to_ba(number_with_precision(@player.slugging_percentage(@year), :precision => 3)) %></td>
+										<td><%= to_ba(number_with_precision(@player.on_base_percentage(@year), :precision => 3)) %></td>
 									</tr>
 								<% end %>
 								<% @year += 1 %>
@@ -72,7 +72,7 @@
 								<td style="text-align:left">TOTAL</td>
 								<td><%= @player.hits %></td>
 								<td><%= @player.at_bats %></td>
-								<td><%= to_ba(@player.batting_average.to_s) %></td>
+								<td><%= to_ba(number_with_precision(@player.batting_average, :precision =>3)) %></td>
 								<td><%= @player.runs %></td>
 								<td><%= @player.singles %></td>
 								<td><%= @player.doubles %></td>
@@ -81,8 +81,8 @@
 								<td><%= @player.rbis %></td>
 								<td><%= @player.strike_outs %></td>
 								<td><%= @player.walks %></td>
-								<td><%= number_with_precision(@player.slugging_percentage, :precision => 3) %></td>
-								<td><%= number_with_precision(@player.on_base_percentage, :precision => 3) %></td>
+								<td><%= to_ba(number_with_precision(@player.slugging_percentage, :precision => 3)) %></td>
+								<td><%= to_ba(number_with_precision(@player.on_base_percentage, :precision => 3)) %></td>
 							</tr>
 						</tbody>
 					</table>

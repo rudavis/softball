@@ -28,4 +28,7 @@ $ ->
 	$('#card').hover(
 		-> $('#card-options-wrapper').fadeIn()
 		-> $('#card-options-wrapper').fadeOut();
-	)	
+	)
+	
+# Fade out the Notice
+	$('#notice').delay(2700).fadeOut('slow');

@@ -18,11 +18,20 @@
 			<ul>
 				<%= render 'devise/menu/login_items' %>
 			</ul>
-			<h1>MAKE ME A BASEBALL CARD</h1>
+			<% if notice %>
+				<div id="notice" class="ui-widget">
+					<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0.7em;">
+						<p>
+							<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+							<%= notice %>
+						</p>
+					</div>
+				</div>
+			<% end %>
+			<h1><img src="/images/SiteLogo_horz.png" ></h1>
 		</div>
-		<p id="notice"><%= notice %></p>
-		
-		<div id="main-content" class="content-block">
+
+		<div id="main-content" class="content-block">			
 			<%= yield %>
 			<div id="clear">
 		</div>

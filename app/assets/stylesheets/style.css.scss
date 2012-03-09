@@ -33,8 +33,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px; } }
 #notice {
-	background-color:rgba(239, 239, 239, 0.5);
-	color: green;
+	position:absolute;
+	z-index:999;
+	top:35px;
+	left:0px;
 }
 #alert {
 	background-color:rgba(239, 239, 239, 0.5);
@@ -57,16 +59,21 @@ input {
 }
 
 #header {
-	background-color: rgba(239,239,239,0.5);
-	margin-top:25px;
+	background-color: rgba(0,0,0,0.5);
+	margin-top:15px;
 	margin-bottom:5px;
-	h1{
-		padding:10px;
+	border-radius:8px;
+	position:relative;
+	h1 img{
+		height:42px;
+		width:626px;
+		margin:10px 0px 10px 10px;
 	}
 	ul {
 		float:right;
 		list-style-type: none;
 		padding: 4px 10px 3px 0px;
+		margin: 10px 0px 10px 0px;
 		li {
 			display:inline;
 			padding: 0px 5px 0px 5px;
@@ -80,6 +87,7 @@ input {
 /*	margin-top:20px; */
 	padding: 10px 0px 10px 0px;
 	border-radius: 8px;
+	position:relative;
 }
 #clear {clear:both;}
 

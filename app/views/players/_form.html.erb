@@ -10,23 +10,9 @@
       </ul>
     </div>
   <% end %>
-
-<div class="third">
-	<div class="card-front">
-		<% if !@player.avatar_file_name %>
-			<img id="player-picture" src="/images/avatar_placeholder.png" />
-		<% else %>
-			<%= image_tag @player.avatar.url(:large) %>
-		<% end %>
-		<div class="player-name">
-			<%= @player.name %>
-		</div>
-	</div>
-	<div><%= f.file_field :avatar %></div>
-</div>
-<div class="two-thirds">
+<div class="three-thirds">
 	<div><%= f.label :name %> <span class="required"> * </span><br />
-	<%= f.text_field :name, :size => 40  %></div>
+	<%= f.text_field :name, :size => 35  %></div>
 	<br />
 	<div><%= f.label :bats %> <br />
 		<div class="options">
@@ -47,7 +33,9 @@
 	<div><%= f.label :notes %> <br />
 		<%= f.text_area :notes, :cols =>34, :rows => 5 %>
 	</div>
-	<br />
+
+</div>
+<div class="three-thirds">
 	<div><%= f.label :position %> <br />
 		<div id="baseball-field">
 			<ul id="outfield">
@@ -68,6 +56,17 @@
 		</div>
 	</div>
 </div>
-
-	<div style="clear:both"><%= f.submit "Update" %></div>
+<div class="three-thirds">
+	<div><label>Picture</label><br />
+		<% if !@player.avatar_file_name %>
+			<img id="player-picture" src="/images/avatar_placeholder.png" />
+		<% else %>
+			<%= image_tag @player.avatar.url(:large) %>
+		<% end %>
+		<br />
+	</div>
+	<div><%= f.file_field :avatar %></div>
+	<br />	
+	<%= f.submit "Update",:style=>"float:right" %>
+</div>
 <% end %>

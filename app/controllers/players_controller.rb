@@ -86,7 +86,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
-          format.html { redirect_to @player, notice: 'Thanks!  Your picture was cropped.' }
+          format.html { redirect_to @player, notice: 'Thanks!  Your player has been updated' }
           format.json { head :ok }
       else
         format.html { render action: "crop" }
@@ -119,7 +119,7 @@ class PlayersController < ApplicationController
       # They DID NOT select a file to upload
       if params[:player][:avatar].blank?
           @player.update_attributes(params[:player])
-            format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+            format.html { redirect_to @player, notice: 'Account has been updated.' }
             format.json { head :ok }
       else # They DID select a file to upload and:
         # 1st time they've uplaoded a file
@@ -127,7 +127,7 @@ class PlayersController < ApplicationController
         # Redirect to Crop page
         if @player.avatar_file_name.blank?
             @player.update_attributes(params[:player])
-              format.html { redirect_to crop_player_path(@player), notice: 'Please crop.' }
+              format.html { redirect_to crop_player_path(@player), notice: 'Please crop the picture.' }
               format.json {head :ok }
         else
           # They have uploaded a file once before

@@ -18,6 +18,7 @@ p, ol, ul {
 }
 a {
   color: #FFA500;
+  font-size:0.8em;
   &:visited {
     color: #FFA500; }
   &:hover {
@@ -33,10 +34,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px; } }
 #notice {
-	position:absolute;
 	z-index:999;
-	top:35px;
-	left:0px;
+	position:absolute;
+	top:30px;
+	right:10px;
 }
 #alert {
 	background-color:rgba(239, 239, 239, 0.5);
@@ -67,19 +68,36 @@ input {
 	h1 img{
 		height:42px;
 		width:626px;
-		margin:10px 0px 10px 10px;
+		margin:10px 0px 3px 10px;
 	}
-	ul {
+	.sign-in-buttons {
 		float:right;
-		list-style-type: none;
-		padding: 4px 10px 3px 0px;
-		margin: 10px 0px 10px 0px;
-		li {
-			display:inline;
-			padding: 0px 5px 0px 5px;
-		}
+		margin:15px 10px 0px 8px;
+		list-style-type:none;
+		li {display:inline;}	
+	}
+
+	#print-your-card {
+		margin:0px 0px 0px 10px;
 	}
 }
+#sub-nav {display:none;}
+#sub-nav a{
+	position:relative;
+	display:block;
+	background-color:#FFFFFF;
+	border:1px solid #AAAAAA;
+	padding:3px;
+	z-index:9999;
+	text-decoration:none;
+	color:#000000;
+	&:hover {
+		color:#000000;
+		background-color:#B0B0B0;
+	}		
+}
+
+
 .content-block {
 /*	background-color: rgba(245,245,245,0.5); */
 	background-color: rgba(2,2,2,0.6);
@@ -93,6 +111,10 @@ input {
 
 #create-player {
 	text-align:left;
+}
+.options{
+	margin-left:12px;
+	font-size:0.8em;
 }
 #baseball-field {
 	background-image: url('/images/diamond.png');
@@ -149,7 +171,6 @@ input {
 	}
 	li {
 		margin-left:15px;
-		font-size:16px;
 	}
 	div {
 		padding:5px 0px 5px 0px;
@@ -162,6 +183,13 @@ input {
 	display:inline;
 	padding:10px;
 }
+.three-thirds{
+	width:31%;
+	float:left;
+	display:inline;
+	padding:10px;
+}
+
 .two-thirds {
 	width:70%;
 	float:left;

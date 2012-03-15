@@ -14,7 +14,7 @@ body {
 p, ol, ul {
   font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
   font-size:1.0em;
-  line-height: 1.2em; 
+  line-height: 1.4em; 
 }
 a {
   color: #FFA500;
@@ -42,6 +42,9 @@ div {
 #alert {
 	background-color:rgba(239, 239, 239, 0.5);
 	color: red;
+}
+#game-error{
+	margin:0px 10px 5px 10px;
 }
 
 /***********/
@@ -324,5 +327,5 @@ input {
 	padding-left:15px;
 	font-size:0.9em;
 	ol {margin:8px 0px 8px 20px;padding-left:30px;}
-	li {padding-left:10px;}
+	li {padding-left:10px;font-size:0.9em}
 }

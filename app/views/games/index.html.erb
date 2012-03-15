@@ -1,0 +1,40 @@
+<div class="score-board">
+	<table cellspacing="0" cellpadding="0">
+		<thead>
+			<tr class="scoreboard">
+				<th title="Your Team Name" style="text-align:left"><img src="/images/scoreboard/team.png" /></th>
+				<th title="Date of the Game" style="text-align:left"><img src="/images/scoreboard/date.png" /></th>
+				<th title="Hits" ><img src="/images/scoreboard/h.png" /></th>			
+				<th title="At Bats" ><img src="/images/scoreboard/ab.png"></th>
+				<th title="Number of times you scored"><img src="/images/scoreboard/r.png"></th>
+				<th title="Singles"><img src="/images/scoreboard/1b.png"></th>
+				<th title="Doubles"><img src="/images/scoreboard/2b.png"></th>
+				<th title="Triples"><img src="/images/scoreboard/3b.png"></th>
+				<th title="Homeruns"><img src="/images/scoreboard/hr.png"></th>
+				<th title="Runners batted in"><img src="/images/scoreboard/rbi.png"></th>
+				<th title="Base on balls"><img src="/images/scoreboard/bb.png"></th>
+				<th title="Strikeouts"><img src="/images/scoreboard/k.png"></th>
+				<th title=""></th>
+			</tr>
+		</thead>
+		<tbody id="all-my-games">
+			<% @games.each do |game| %>
+			<tr>
+				<td style="text-align:left"><%= game.team_name %></td>
+				<td style="text-align:left"><%= game.date %></td>
+				<td><%= game.hits %></td>		
+				<td><%= game.at_bats %></td>
+				<td><%= game.runs %></td>
+				<td><%= game.singles %></td>
+				<td><%= game.doubles %></td>
+				<td><%= game.triples %></td>
+				<td><%= game.homeruns %></td>
+				<td><%= game.rbis %></td>
+				<td><%= game.walks %></td>
+				<td><%= game.strike_outs %></td>
+				<td><%= link_to "Edit", edit_player_game_path(:player_id=>game.player_id, :id => game.id)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

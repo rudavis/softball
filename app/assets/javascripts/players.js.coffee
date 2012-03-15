@@ -21,6 +21,12 @@ $ ->
 		-> $(this).removeClass('ui-state-hover')
 	)
 
+#hover state on the Edit Player login item
+	$('#has-sub-nav').hover(
+		-> $('#sub-nav').slideDown()
+		-> $('#sub-nav').slideUp()
+	)
+
 #Tooltips
 	$('#card-options-wrapper li').tipTip('delay':100)
 	$('.stats-table th').tipTip('delay':100, 'defaultPosition':'top')

@@ -1,3 +1,7 @@
+<% content_for(:title) do %>
+Make Me A Baseball Card :: Crop Photo
+<% end %>
+
 <% content_for(:head) do %>
 <script type="text/javascript">
 $(function() {
@@ -42,7 +46,6 @@ $(function() {
 	  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
 	    <%= f.hidden_field attribute, :id => attribute %>
 	  <% end %>
-	  <p><%= f.submit "Crop" %></p>
+	  <%= f.submit "Crop", :style=>"float:right" %>
 	<% end %>
 </div>
-<%= link_to "Back", edit_player_path(@player) %>

@@ -1,5 +1,5 @@
-
 <% games.each do |game| %>
+<% if game.id != nil %>
 <tr>
 	<td style="text-align:left"><%= game.team_name %></td>
 	<td style="text-align:left"><%= game.date %></td>
@@ -13,6 +13,7 @@
 	<td><%= game.rbis %></td>
 	<td><%= game.walks %></td>
 	<td><%= game.strike_outs %></td>
-	<td></td>
+	<td><%= link_to "Edit", edit_player_game_path(:player_id=>game.player_id, :id => game.id)%></td>
 </tr>
+<% end %>
 <% end %>

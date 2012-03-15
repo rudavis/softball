@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Softball</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag "application", "scaffolds", "style", "jquery.Jcrop", "tipTip" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,16 +11,6 @@
 	// ]]></script>
 	<%= yield(:head) %>
 	<%= render "home/analytics" %>
-	<script>
-	$(function() {
-		$("#has-sub-nav").hover(function() {
-			$("#sub-nav").slideDown();
-		},
-		function(){
-			$("#sub-nav").slideUp();
-		});
-	});
-	</script>
 </head>
 <body>
 	<div id="container">
@@ -39,7 +29,7 @@
 			<h1><img src="/images/SiteLogo_horz.png" ></h1>
 			<% if player_signed_in? %>
 				<%= link_to "Print Card", print_card_player_path(@player), :id=>"print-your-card", :class => "fake-button", :target => "_blank"%>
-				<a href="#" id="list-my-games">My Games</a>
+				<%= link_to "My Games", player_games_path(@player), :id =>"list-my-games" %>
 			<% end %>
 		</div>
 		<div id="main-content" class="content-block">			

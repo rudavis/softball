@@ -11,7 +11,7 @@
     </div>
   <% end %>
 <div class="three-thirds">
-	<div><%= f.label :name %> <span class="required"> * </span><br />
+	<div><%= f.label :name,"Your Name" %> <span class="required"> * </span><br />
 	<%= f.text_field :name, :size => 35  %></div>
 	<br />
 	<div><%= f.label :bats %> <br />
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	<br />
-	<div><%= f.label :notes %> <br />
+	<div><%= f.label :notes, "Bio Notes" %> <br />
 		<%= f.text_area :notes, :cols =>34, :rows => 5 %>
 	</div>
 

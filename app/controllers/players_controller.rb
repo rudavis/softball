@@ -62,6 +62,7 @@ class PlayersController < ApplicationController
 
   # POST /players
   # POST /players.json
+
   def create
     @player = Player.new(params[:player])
 
@@ -75,7 +76,7 @@ class PlayersController < ApplicationController
       end
     end
   end  
-  
+
   # GET /player/1/crop
   def crop
     @player = Player.find(params[:id])

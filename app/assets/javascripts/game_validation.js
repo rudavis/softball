@@ -52,7 +52,7 @@ $(function() {
 			return true;
 		}
 	}
-	
+	//New Game - clicking the Add Game button
 	$('#submit_game').click(function() {
 		var bValid = true;
 
@@ -60,6 +60,16 @@ $(function() {
 		
 		if (bValid) {
 			$('#new_game').submit();
+		}			
+	});
+	//Update Game - clicking the Update button
+	$('#update_game').click(function() {
+		var bValid = true;
+
+		bValid = bValid && validateGame();
+		
+		if (bValid) {
+			$('form:first').submit();
 		}			
 	});
 			

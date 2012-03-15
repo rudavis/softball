@@ -1,5 +1,10 @@
 <div class="score-board">
-	<p class="validate-tips"></p>
+	<div id="game-error" class="ui-widget" style="display:none">
+		<div class="ui-state-error ui-corner-all" style="padding: 0.7em;">
+			<p class="validate-tips">
+			</p>
+		</div>
+	</div>
 	<table cellspacing="0" cellpadding="0">
 		<thead>
 			<%= render :partial => "games/score_board_header" %>
@@ -22,7 +27,7 @@
 					<td><%= f.text_field :rbis, :size => 3 %></td>
 					<td><%= f.text_field :walks, :size => 3 %></td>
 					<td><%= f.text_field :strike_outs, :size => 3, %></td>
-					<td><%= f.submit %></td>
+					<td><a href="#" id="update_game" class="fake-button">Update</a></td>
 				</tr>
 			<% end %>
 		</tbody>

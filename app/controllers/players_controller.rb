@@ -2,19 +2,6 @@ class PlayersController < ApplicationController
   before_filter :authenticate_player!
   layout :resolve_layout
   
-
-  # GET /players
-  # GET /players.json
-  def index
-    @player = Player.new
-    @players = Player.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @players }
-    end
-  end
-
   # GET /players/1
   # GET /players/1.json
   def show
@@ -44,38 +31,10 @@ class PlayersController < ApplicationController
     end
   end 
 
-  # GET /players/new
-  # GET /players/new.json
-  def new
-    @player = Player.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @player }
-    end
-  end
-
   # GET /players/1/edit
   def edit
     @player = Player.find(params[:id])
   end
-
-  # POST /players
-  # POST /players.json
-
-  def create
-    @player = Player.new(params[:player])
-
-    respond_to do |format|
-      if @player.save
-        format.html { redirect_to @player, notice: 'Welcome!  Player was successfully created.' }
-        format.json { render json: @player, status: :created, location: @player }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
-      end
-    end
-  end  
 
   # GET /player/1/crop
   def crop

@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_filter :authenticate_player!
+  before_filter :correct_user
   layout :resolve_layout
   
   # GET /players/1
@@ -123,5 +124,12 @@ class PlayersController < ApplicationController
     else
       "application"
     end
+  end
+  def correct_user
+    @player = Player.find(params[:id])
+    if @player != current_player
+      sign_out @player
+      redirect_to root_path, notice: 'You are not authorized to view that page!'
+    end 
   end
 end

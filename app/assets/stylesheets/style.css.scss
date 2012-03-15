@@ -84,14 +84,20 @@ input {
 		margin:0px 0px 0px 10px;
 	}
 }
-#sub-nav {display:none;}
+#sub-nav {
+	display:none;
+	position:absolute;
+	width:120px;
+}
 #sub-nav a{
 	position:relative;
 	display:block;
 	background-color:#FFFFFF;
 	border:1px solid #AAAAAA;
-	padding:3px;
+	padding:3px 8px 3px;
 	z-index:9999;
+	font-size:0.7em;
+	text-align:right;
 	text-decoration:none;
 	color:#000000;
 	&:hover {

@@ -1,3 +1,6 @@
+<% content_for(:title) do %>
+<%= "Make Me A Baseball Card :: #{@player.name}'s Games" %>
+<% end %>
 <div class="score-board">
 	<table cellspacing="0" cellpadding="0">
 		<thead>
@@ -37,4 +40,6 @@
 			<% end %>
 		</tbody>
 	</table>
+	<br />
+	<%= link_to"Back", player_path(@player), :class=>"fake-button", :style=>"float:right;margin-right:10px;" %>
 </div>

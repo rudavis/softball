@@ -10,8 +10,8 @@
 	<ul class="sign-in-buttons">
 		<li id="has-sub-nav"><%= link_to('My Account', edit_player_path(@player), :id =>"edit-player", :class =>"fake-button") %>
 			<ul id="sub-nav">
-				<li><%= link_to('Edit Info', edit_player_path(@player)) %></li>
-				<li><%= link_to( 'Change Password', edit_player_registration_path) %></li>
+				<li><%= link_to( 'Change Password', edit_player_registration_path,:class=>"ui-corner-all" )%></li>
+				<li><%= link_to('Edit Info', edit_player_path(@player), :class=>"ui-corner-all" )%></li>
 			</ul>
 		</li>
 	</ul>

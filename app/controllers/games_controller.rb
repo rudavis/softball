@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_filter :authenticate_player!
 
   def index
     @player = Player.find(params[:player_id])

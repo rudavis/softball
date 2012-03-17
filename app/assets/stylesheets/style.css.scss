@@ -22,7 +22,7 @@ a {
   &:visited {
     color: #FFA500; }
   &:hover {
-    color: #FF0000;} }
+    color: #FFFFFF;} }
 a.fake-button {
   color: #FFFFFF;
   &:visited {
@@ -35,9 +35,11 @@ div {
     margin-bottom: 10px; } }
 #notice {
 	z-index:999;
+	float:right;
+	width:333px;
+	margin:15px 10px 0px 0px;
 	position:absolute;
-	top:30px;
-	right:10px;
+	right:0;
 }
 #alert {
 	background-color:rgba(239, 239, 239, 0.5);
@@ -73,39 +75,29 @@ input {
 		width:626px;
 		margin:10px 0px 3px 10px;
 	}
-	.sign-in-buttons {
-		float:right;
-		margin:15px 10px 0px 8px;
-		list-style-type:none;
-		li {display:inline;}	
+}
+.nav {
+	list-style-type:none;
+	width:100%;
+	li {
+		display:inline-block;
+		a {
+			display:inline-block;
+			padding:8px 30px 8px 35px;
+			text-decoration:none;
+			font-size:0.9em;
+			color:#FFFFFF;
+			&:hover{
+				text-decoration:underline;
+				color:#FFA500;
+			}
+		}
+		&:hover{
+			background:url('/images/nav-bg-ball.png') center left no-repeat,
+			url('/images/nav-bg-ball.png') center right no-repeat;
+		}
 	}
-
-	#print-your-card {
-		margin:0px 0px 0px 10px;
-	}
 }
-#sub-nav {
-	display:none;
-	position:absolute;
-	width:120px;
-}
-#sub-nav a{
-	position:relative;
-	display:block;
-	background-color:#FFFFFF;
-	border:1px solid #AAAAAA;
-	padding:3px 8px 3px;
-	z-index:9999;
-	font-size:0.7em;
-	text-align:right;
-	text-decoration:none;
-	color:#000000;
-	&:hover {
-		color:#000000;
-		background-color:#B0B0B0;
-	}		
-}
-
 
 .content-block {
 /*	background-color: rgba(245,245,245,0.5); */

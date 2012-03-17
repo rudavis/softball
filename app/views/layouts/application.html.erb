@@ -17,7 +17,7 @@
 		<div id="header">
 			<% if notice %>
 				<div id="notice" class="ui-widget">
-					<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0.7em;">
+					<div class="ui-state-highlight ui-corner-all" style="padding: 0.7em;">
 						<p>
 							<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
 							<%= notice %>
@@ -25,11 +25,21 @@
 					</div>
 				</div>
 			<% end %>
-			<%= render "home/main_nav"%>
+			<% if !player_signed_in? %>
+				<ul class="nav" style="width:auto;float:right;margin:15px 15px 0px 0px;">
+					<li><%= link_to('Sign In', new_player_session_path) %></li>
+					<li><%= link_to('Sign Up', new_player_registration_path) %></li>
+				</ul>
+			<% end %>
 			<h1><img src="/images/SiteLogo_horz.png" ></h1>
 			<% if player_signed_in? %>
-				<%= link_to "Print Card", print_card_player_path(@player), :id=>"print-your-card", :class => "fake-button", :target => "_blank"%>
-				<%= link_to "My Games", player_games_path(@player), :id =>"list-my-games" %>
+				<ul class="nav">
+					<li><%= link_to "Print Card", print_card_player_path(@player), :id=>"print-your-card", :target => "_blank"%></li>
+					<li><%= link_to "My Games", player_games_path(@player), :id =>"list-my-games" %></li>
+					<li><%= link_to('My Account', edit_player_path(@player) ) %></li>
+					<li><%= link_to( 'Change Password', edit_player_registration_path )%></li>
+					<li style="float:right;margin-right:8px"><%= link_to('Logout', destroy_player_session_path, :method => :delete) %></li>
+				</ul>
 			<% end %>
 		</div>
 		<div id="main-content" class="content-block">			

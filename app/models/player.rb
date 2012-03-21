@@ -13,7 +13,7 @@ class Player < ActiveRecord::Base
     },
     :bucket => ENV['S3_BUCKET'],
     :path => ":attachment/:id/:style.:extension",
-    :styles => { :thumb => "200x200>", :large => "500x500>" }, 
+    :styles => {:large => "500x500>" }, 
     :processors => [:cropper]
   after_update :reprocess_avatar, :if => :cropping?
   

@@ -34,6 +34,7 @@
 			<h1><img src="/images/SiteLogo_horz.png" ></h1>
 			<% if player_signed_in? %>
 				<ul class="nav">
+					<li><%= link_to "Home", player_path(@player) %></li>
 					<li><%= link_to "Print Card", print_card_player_path(@player), :id=>"print-your-card", :target => "_blank"%></li>
 					<li><%= link_to "My Games", player_games_path(@player), :id =>"list-my-games" %></li>
 					<li><%= link_to('My Account', edit_player_path(@player) ) %></li>

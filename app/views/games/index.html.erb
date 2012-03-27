@@ -35,7 +35,10 @@
 				<td><%= game.rbis %></td>
 				<td><%= game.walks %></td>
 				<td><%= game.strike_outs %></td>
-				<td><%= link_to "Edit", edit_player_game_path(:player_id=>game.player_id, :id => game.id)%></td>
+				<td>
+					<%= link_to "Edit", edit_player_game_path(:player_id=>game.player_id, :id => game.id)%> | 
+					<%= link_to "Delete", player_game_path(:player_id=>game.player_id, :id => game.id), method: :delete, confirm: "Are you sure you want to delete that game?" %>
+					</td>
 			</tr>
 			<% end %>
 		</tbody>

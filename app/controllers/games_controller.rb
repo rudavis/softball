@@ -21,6 +21,16 @@ class GamesController < ApplicationController
     @game = @player.games.find(params[:id])
   end
   
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+
+    respond_to do |format|
+      format.html { redirect_to player_games_path(current_player) }
+      format.json { head :ok }
+    end
+  end
+  
   def update
     @game = Game.find(params[:id])
     

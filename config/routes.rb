@@ -1,5 +1,5 @@
 Softball::Application.routes.draw do
-  
+
   devise_for :players, :controllers => { :registrations => "registrations" }
   
   resources :players do
@@ -11,6 +11,8 @@ Softball::Application.routes.draw do
       get 'print_card'
     end
   end
+  
+  resources :admin
 
   root :to => "home#index"
 

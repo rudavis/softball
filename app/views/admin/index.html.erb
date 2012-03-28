@@ -1,0 +1,48 @@
+<% content_for(:title) do %>
+	Admin Portal
+<% end %>
+<% content_for(:head) do %>
+	<style type="text/css">
+		td{
+			padding:8px;
+		}
+	</style>
+<% end %>
+
+<table cellspacing="0" cellpadding="0" border="1px" style="margin:10px">
+	<tbody>
+		<tr>
+			<td># of Players</td>
+			<td><%= @players.count %></td>
+		</tr>
+		<tr>
+			<td># of Players w/ Pictures</td>
+			<td><%= @players_with_pictures %></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table cellpadding="0" cellspacing="0" border="1px" style="margin:10px">
+	<thead>
+		<th>Email</th>
+		<th>Name</th>
+		<th>Has Picture?</th>
+		<th># of Games</th>
+		<th>Last Logged In</th>
+		<th>View</th>
+	</thead>
+	<tbody>
+		<% @players.each do |player| %>
+		<tr>
+			<td><%= player.email %></td>
+			<td><%= player.name %></td>
+			<td><%= player.avatar_file_name ? "Yes" : "No"%>
+			<td><%= player.games.count %></td>
+			<td><%= player.last_sign_in_at %></td>
+			<td><%= link_to "View", player_path(player) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>	
+		

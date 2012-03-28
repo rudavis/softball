@@ -9,8 +9,6 @@ $ ->
 	$('.fake-button').button()
 	$('#get-started').button(icons:(secondary: 'ui-icon-circle-arrow-e'))
 
-	$('#submit_game').button()
-
 #hover states on the static widgets
 	$('#card-options-wrapper li').hover( 
 		-> $(this).addClass('ui-state-hover') 

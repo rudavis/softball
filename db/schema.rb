@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229165031) do
+ActiveRecord::Schema.define(:version => 20120328132520) do
 
   create_table "games", :force => true do |t|
     t.integer  "hits"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20120229165031) do
     t.string   "throws"
     t.string   "position"
     t.string   "notes"
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120229165031) do
     t.integer  "crop_y"
     t.integer  "crop_w"
     t.integer  "crop_h"
+    t.boolean  "admin",                                 :default => false
   end
 
   add_index "players", ["email"], :name => "index_players_on_email", :unique => true

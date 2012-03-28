@@ -127,7 +127,7 @@ class PlayersController < ApplicationController
   end
   def correct_user
     @player = Player.find(params[:id])
-    if @player != current_player
+    if @player != current_player  && !current_player.admin
       sign_out @player
       redirect_to root_path, notice: 'You are not authorized to view that page!'
     end 

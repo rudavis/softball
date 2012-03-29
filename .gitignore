@@ -23,3 +23,9 @@
 
 #Ingnore my secret keys file
 /config/heroku_env.rb
+
+#Ignore Photoshop, excel and other unnecessary files
+*.psd
+/public/images/psd/*
+*.xlsx
+*.ep

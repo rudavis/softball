@@ -54,9 +54,9 @@
 <div class="three-thirds">
 	<div><label>Picture</label><br />
 		<% if !@player.avatar_file_name %>
-			<img id="player-picture" src="/images/avatar_placeholder.png" />
+			<img id="player-cropped-picture" src="/images/avatar_placeholder.png" />
 		<% else %>
-			<%= image_tag @player.avatar.url(:large) %>
+			<%= image_tag @player.avatar.url(:large), :id =>"player-cropped-picture" %>
 		<% end %>
 		<br />
 	</div>

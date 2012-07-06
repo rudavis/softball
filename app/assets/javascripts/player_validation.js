@@ -30,6 +30,8 @@ $(function() {
 			return false;
 		}
 		//Make sure the file selected is png, gif, jpg
+		//If this doesn't work in IE, look into using the DOM methods:
+		//avatarFileName = document.getElementById("player_avatar").files[0].fileName (or just name.)
 		if (/\.(png|jpg|gif)/i.test(avatarFileName) == false && avatarFileName != "") {
 			avatar.parent().addClass("ui-state-error");
 			updateTips("Please select a Picture to upload.  Valid picture extensions are png, jpg, gif.");

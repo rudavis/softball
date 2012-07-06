@@ -18,7 +18,7 @@ $(function() {
 		tips.hide();
 		
 		//Make sure the name is populated
-		if (name.val().trim() == "") {
+		if (name.val() == "") {
 			name.parent().addClass("ui-state-error");
 			updateTips("Please enter your name!");
 			return false;

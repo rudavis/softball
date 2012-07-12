@@ -45,6 +45,18 @@ div {
 	background-color:rgba(239, 239, 239, 0.5);
 	color: red;
 }
+
+#browser-warning{
+	font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+	font-size:1.0em;
+	line-height: 1.2em;
+	a {
+		color: #1A1A1A;
+	  	font-size:1.0em;
+		line-height: 1.2em;
+	  	&:hover {
+	    	color: #FFFFFF;} }
+}
 #game-error{
 	margin:0px 10px 5px 10px;
 }

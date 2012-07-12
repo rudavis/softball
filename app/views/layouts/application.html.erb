@@ -13,6 +13,9 @@
 	<%= render "home/analytics" %>
 </head>
 <body>
+	<!--[if lte IE 8]>
+		<%= render :partial => "home/old_browser" %>
+	<![endif]-->
 	<div id="container">
 		<div id="header">
 			<% if notice %>

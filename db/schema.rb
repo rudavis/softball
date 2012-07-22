@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328132520) do
+ActiveRecord::Schema.define(:version => 20120721200345) do
 
   create_table "games", :force => true do |t|
     t.integer  "hits"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20120328132520) do
     t.integer  "crop_w"
     t.integer  "crop_h"
     t.boolean  "admin",                                 :default => false
+    t.boolean  "share_card",                            :default => false
   end
 
   add_index "players", ["email"], :name => "index_players_on_email", :unique => true

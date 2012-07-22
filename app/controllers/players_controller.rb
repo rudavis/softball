@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   before_filter :authenticate_player!
-  before_filter :correct_user
+  before_filter :correct_user, :except =>'print_card'
+  before_filter :public_card, :only => 'print_card'
   layout :resolve_layout
   
   # GET /players/1
@@ -128,8 +129,16 @@ class PlayersController < ApplicationController
   def correct_user
     @player = Player.find(params[:id])
     if @player != current_player  && !current_player.admin
-      sign_out @player
+      sign_out current_player
       redirect_to root_path, notice: 'You are not authorized to view that page!'
     end 
+  end
+
+  def public_card
+    @player = Player.find(params[:id])
+    if (@player != current_player && !current_player.admin) && @player.share_card == false
+      sign_out current_player
+      redirect_to root_path, notice: 'You are not allowed to see this page!'
+    end
   end
 end

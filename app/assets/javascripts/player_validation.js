@@ -1,9 +1,8 @@
 //<![CDATA[
 $(function() {
 	var name = $("#player_name"),
-		notes = $("#player_notes"),
 		avatar = $("#player_avatar"),
-		allFields = $( [ ] ).add(name).add(notes).add(avatar),
+		allFields = $( [ ] ).add(name).add(avatar),
 		tips = $(".validate-tips");
 	
 	function updateTips(t) {
@@ -21,12 +20,6 @@ $(function() {
 		if (name.val() == "") {
 			name.parent().addClass("ui-state-error");
 			updateTips("Please enter your name!");
-			return false;
-		}
-		//Make sure they enter less than 255 characters for the bio notes
-		if (notes.val().length > 255) {
-			notes.parent().addClass("ui-state-error");
-			updateTips("Limit bio to 255 characters!");
 			return false;
 		}
 		//Make sure the file selected is png, gif, jpg

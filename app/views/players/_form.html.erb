@@ -25,10 +25,13 @@
 		</div>
 	</div>
 	<br />
-	<div><%= f.label :notes, "Bio Notes" %> <br />
-		<div><%= f.text_area :notes, :cols =>34, :rows => 5 %></div>
+	<div>
+		<%= f.label :share_card, "Share Your Card?" %> <br />
+		<div class="options">
+			Private:<%= f.radio_button(:share_card,"false") %>&nbsp;&nbsp;			
+			Public:<%= f.radio_button(:share_card,"true") %>&nbsp;&nbsp;
+		</div>
 	</div>
-
 </div>
 <div class="three-thirds">
 	<div><%= f.label :position %> <br />

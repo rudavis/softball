@@ -1,7 +1,6 @@
 class PlayersController < ApplicationController
-  before_filter :authenticate_player!
+  before_filter :authenticate_player!, :except => 'print_card'
   before_filter :correct_user, :except =>'print_card'
-  before_filter :public_card, :only => 'print_card'
   layout :resolve_layout
   
   # GET /players/1
@@ -24,12 +23,35 @@ class PlayersController < ApplicationController
   
   def print_card
     @player = Player.find(params[:id])
-    @year = @player.games.first.date.year
-    @newest_year = @player.games.last.date.year
+    # Check to see if they have any games?
+    if @player.games.first == nil
+      # They dont have any games so we want to show them a card with 0's for stats.
+      # TODO:  Show 0's on cards where players don't have any games.
+      ##
+      ##
+      # Temp hack:  redirect to show page with a flash notice.
+      redirect_to @player, notice: 'Please enter at least 1 game before you print your card!'
+    else
+      # They do have games, so we get the years and sort 
+      @year = @player.games.first.date.year
+      @newest_year = @player.games.last.date.year
 
-    respond_to do |format|
-      format.html # print.html.erb
-      format.json { render json: @player }
+      # If they are sharing their card, always render.
+      # if they are NOT sharing their card, only render if current_player = @player OR current_player.admin
+      # Note:  (current_player != nil && current_player.admin) this is to prevent throwing a nil exception
+      # for annoymous visits
+      if @player.share_card == true || @player == current_player || (current_player != nil && current_player.admin)
+        respond_to do |format|
+          format.html # print.html.erb
+          format.json { render json: @player }
+        end
+      else
+        if current_player 
+          redirect_to current_player, notice: 'What you looking overe there for??'
+        else
+          redirect_to root_path, notice: 'They dont want you to see this!'
+        end 
+      end 
     end
   end 
 
@@ -132,13 +154,5 @@ class PlayersController < ApplicationController
       sign_out current_player
       redirect_to root_path, notice: 'You are not authorized to view that page!'
     end 
-  end
-
-  def public_card
-    @player = Player.find(params[:id])
-    if (@player != current_player && !current_player.admin) && @player.share_card == false
-      sign_out current_player
-      redirect_to root_path, notice: 'You are not allowed to see this page!'
-    end
   end
 end

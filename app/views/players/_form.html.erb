@@ -26,11 +26,14 @@
 	</div>
 	<br />
 	<div>
-		<%= f.label :share_card, "Share Your Card?" %> <br />
+		<label for="share_card">Share Your Card</label>
+		<a href="#" id="share-help" class="ui-icon help-icon" style="display:inline-block;height:20px;width:20px"></a>
+		<br />
 		<div class="options">
 			Private:<%= f.radio_button(:share_card,"false") %>&nbsp;&nbsp;			
 			Public:<%= f.radio_button(:share_card,"true") %>&nbsp;&nbsp;
 		</div>
+		</p>
 	</div>
 </div>
 <div class="three-thirds">

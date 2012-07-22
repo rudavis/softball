@@ -20,8 +20,8 @@ $ ->
 	$('.stats-table th').tipTip('delay':100, 'defaultPosition':'top')
 	$('.scoreboard th').tipTip('delay':100, 'defaultPosition':'top')
 	$('#baseball-field input').tipTip('delay':100, 'defaultPosition':'top')	
-	
-#fade in and out the bar over the player card
+	$('#share-help').tipTip('maxWidth':'auto', 'delay':100, 'defaultPosition':'top', 'content':'<strong>Private:</strong>&nbsp;&nbsp;Only you can see your card.<br /><strong>Public:</strong>&nbsp;&nbsp;Share your card with friends!')
+
 	$('#card').hover(
 		-> $('#card-options-wrapper').fadeIn()
 		-> $('#card-options-wrapper').fadeOut();

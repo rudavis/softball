@@ -7,13 +7,8 @@
 	<%= stylesheet_link_tag "application", "tipTip", "style", :media =>"screen" %>
     <%= javascript_include_tag "application" %>
 	<script>
-		$(function(){ 			
-			$('#print-help-link').click(function() {
-				$('#print-help').toggle("blind",500);
-			});
-			$('#share-help-link').click(function() {
-				$('#share-help').toggle("blind",500);
-			});
+		$(function(){
+			$('#accordion').accordion();
 		});
 	</script>
 	<%= render "home/analytics" %>
@@ -22,41 +17,35 @@
 	<!--[if lte IE 8]>
 		<%= render :partial => "home/old_browser" %>
 	<![endif]-->
+	
 	<%= yield %>
-	<div id="print-nav">
-		<ul class="nav">
-			<li>
-				<a href="#" id="print-help-link">Help</a>
-			</li>
-			<li>
-				<a href="#" id="share-help-link">Share</a>
-			</li>
-			<li>
-				<a href="#" onClick="window.close()">Close</a>
-			</li>
-		</ul>
-		<div class="nav-details" id="print-help">
-			<h2>Here's what to do...</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<a href="#" class="right fake-button">Hide</a>
-		</div>
-		<div class="nav-details" id="share-help" title="Share your card">
-			<h2>Share your card with the world?</h2>
-			<p>
-				Copy & paste the link below to share your card with friends and family.
+	
+	<div class="right-sidebar">
+		<div id="accordion">
+			<h3><a href="#">Print</a></h3>
+			<div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+			<h3><a href="#">Share</a></h3>
+			<div>
+				<p>
+					Copy and paste the link below to share your card with friends and family.
+					<br />
+					<input type="text" size="60" readonly="readonly" value = <%= @share_url.to_s %> />
+				</p>
 				<br />
-				<input id="your-url" type="text" size="55" readonly="readonly" value = <%= @share_url.to_s %> />
-			</p>
-			<p>
-				Click <strong>Share</strong> to make your card public so all your friends and family can see how great you are!
-			</p>
-			<p>
-				Click <strong>Cancel</strong> to keep your card private.
-			</p>
-			<p>
-				&nbsp;Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.</p>
+				<p>
+					Click <strong>Share</strong> to make your card public so all your friends and family can see how great you are!
+				</p>
+				<br />
+				<p>
+					Click <strong>Cancel</strong> to keep your card private.
+				</p><br />
+				<p>
+					Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.</p>
+				
+			</div>
 		</div>
-	</div>	
+	</div>
 </body>
 </html>

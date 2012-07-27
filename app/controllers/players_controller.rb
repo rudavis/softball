@@ -41,6 +41,7 @@ class PlayersController < ApplicationController
       # Note:  (current_player != nil && current_player.admin) this is to prevent throwing a nil exception
       # for annoymous visits
       if @player.share_card == true || @player == current_player || (current_player != nil && current_player.admin)
+        @share_url = "http://"+request.host+request.fullpath
         respond_to do |format|
           format.html # print.html.erb
           format.json { render json: @player }

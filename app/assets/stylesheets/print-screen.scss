@@ -78,3 +78,24 @@
 	font-size:0.8em;
 	text-align:center;
 }
+#share-dialog{
+	display:none;
+	font-size:1.1em;	
+}
+#share-dialog a:hover {
+	color:#000;
+}
+#your-url {
+	margin-top:8px;
+	padding:5px;
+	font-size:1.3em;
+}
+#print-nav{
+	width:100%;
+	margin-top:20px;
+	background-color:#999999;
+}
+.nav-details{
+	display:none;
+	padding:0px 10px 10px 10px;
+}

@@ -22,29 +22,47 @@
 	
 	<div class="right-sidebar">
 		<div id="accordion">
-			<h3><a href="#">Print</a></h3>
-			<div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-			<h3><a href="#">Share</a></h3>
+			<h3><a href="#">Print from your printer</a></h3>
 			<div>
 				<p>
-					Copy and paste the link below to share your card with friends and family.
-					<br />
-					<input type="text" size="60" readonly="readonly" value = <%= @share_url.to_s %> />
+					Use the browser to print (File > Print).  <br />
+					Then cut out your card and fold it in half!
 				</p>
 				<br />
 				<p>
-					Click <strong>Share</strong> to make your card public so all your friends and family can see how great you are!
+					<label>Cards per page:  </label>
+						<select>
+							<option>1</option>
+							<option>2</option>
+							<option>4</option>
+							<option>6</option>
+						</select>
+				</p>
+			</div>
+			<h3><a href="#">Share a link</a></h3>
+			<div>
+				<p>
+					Your card must be <b>Public</b> to share with your friends.
+					<%= form_for @player do |f| %>
+						<div style="margin-left:20px;margin-bottom:10px">
+							Private:<%= f.radio_button(:share_card,"false") %>&nbsp;&nbsp;
+							Public:<%= f.radio_button(:share_card,"true") %>&nbsp;&nbsp;
+						</div>
+					<% end %>
+				</p>
+				<p>
+					Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.
 				</p>
 				<br />
 				<p>
-					Click <strong>Cancel</strong> to keep your card private.
-				</p><br />
-				<p>
-					Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.</p>
-				
+					<div>
+						<input type="text" size="60" readonly="readonly" value = <%= @share_url.to_s %> />
+						<br /><br />
+						Copy and paste the link below to share your card with friends and family.
+					</div>
+				</p>				
 			</div>
+			<h3><a href="#" onClick="window.close();">Done</a></h3>
 		</div>
 	</div>
 </body>

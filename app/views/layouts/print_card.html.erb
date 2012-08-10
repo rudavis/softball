@@ -20,50 +20,6 @@
 	
 	<%= yield %>
 	
-	<div class="right-sidebar">
-		<div id="accordion">
-			<h3><a href="#">Print from your printer</a></h3>
-			<div>
-				<p>
-					Use the browser to print (File > Print).  <br />
-					Then cut out your card and fold it in half!
-				</p>
-				<br />
-				<p>
-					<label>Cards per page:  </label>
-						<select>
-							<option>1</option>
-							<option>2</option>
-							<option>4</option>
-							<option>6</option>
-						</select>
-				</p>
-			</div>
-			<h3><a href="#">Share a link</a></h3>
-			<div>
-				<p>
-					Your card must be <b>Public</b> to share with your friends.
-					<%= form_for @player do |f| %>
-						<div style="margin-left:20px;margin-bottom:10px">
-							Private:<%= f.radio_button(:share_card,"false") %>&nbsp;&nbsp;
-							Public:<%= f.radio_button(:share_card,"true") %>&nbsp;&nbsp;
-						</div>
-					<% end %>
-				</p>
-				<p>
-					Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.
-				</p>
-				<br />
-				<p>
-					<div>
-						<input type="text" size="60" readonly="readonly" value = <%= @share_url.to_s %> />
-						<br /><br />
-						Copy and paste the link below to share your card with friends and family.
-					</div>
-				</p>				
-			</div>
-			<h3><a href="#" onClick="window.close();">Done</a></h3>
-		</div>
-	</div>
+	<%= render :partial => "players/print_sidebar" %>
 </body>
 </html>

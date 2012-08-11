@@ -8,7 +8,14 @@
     <%= javascript_include_tag "application" %>
 	<script>
 		$(function(){
-			$('#accordion').accordion();
+			$('#accordion').accordion({
+				autoHeight: false,
+				active: 1
+			});
+
+			$('.submittable').live('change', function() {
+			  $(this).parents('form:first').submit();
+			});
 		});
 	</script>
 	<%= render "home/analytics" %>
@@ -17,6 +24,16 @@
 	<!--[if lte IE 8]>
 		<%= render :partial => "home/old_browser" %>
 	<![endif]-->
+	<% if notice %>
+		<div id="notice" class="ui-widget">
+			<div class="ui-state-highlight ui-corner-all" style="padding: 0.7em;">
+				<p>
+					<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+					<%= notice %>
+				</p>
+			</div>
+		</div>
+	<% end %>
 	
 	<%= yield %>
 	

@@ -21,10 +21,10 @@
 		<div>
 			<p>
 				Your card must be <b>Public</b> to share with your friends.
-				<%= form_for @player do |f| %>
+				<%= form_for @player, :remote => true do |f| %>
 					<div style="margin-left:20px;margin-bottom:10px">
-						Private:<%= f.radio_button(:share_card,"false") %>&nbsp;&nbsp;
-						Public:<%= f.radio_button(:share_card,"true") %>&nbsp;&nbsp;
+						Private:&nbsp;&nbsp;<%= f.radio_button(:share_card,"false", :class => 'submittable') %>&nbsp;&nbsp;
+						Public:&nbsp;&nbsp;<%= f.radio_button(:share_card,"true", :class => 'submittable') %>&nbsp;&nbsp;
 					</div>
 				<% end %>
 			</p>

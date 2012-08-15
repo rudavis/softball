@@ -3,43 +3,52 @@
 		<h3><a href="#">Print from your printer</a></h3>
 		<div>
 			<p>
-				Use the browser to print (File > Print).  <br />
-				Then cut out your card and fold it in half!
-			</p>
-			<br />
-			<p>
 				<label>Cards per page:  </label>
 					<select>
 						<option>1</option>
-						<option>2</option>
-						<option>4</option>
-						<option>6</option>
 					</select>
+				&nbsp;&nbsp;<input type="button" class="fake-button" onClick="window.print()" value="Print" />
 			</p>
 		</div>
 		<h3><a href="#">Share a link</a></h3>
 		<div>
-			<p>
-				Your card must be <b>Public</b> to share with your friends.
-				<%= form_for @player, :remote => true do |f| %>
-					<div style="margin-left:20px;margin-bottom:10px">
-						Private:&nbsp;&nbsp;<%= f.radio_button(:share_card,"false", :class => 'submittable') %>&nbsp;&nbsp;
-						Public:&nbsp;&nbsp;<%= f.radio_button(:share_card,"true", :class => 'submittable') %>&nbsp;&nbsp;
+			<% if @player.share_card %>
+				<p>
+					<div>
+						Copy and paste the link below to share your card with friends and family. <br />
+						<input type="text" size="60" readonly="readonly" value = <%= @share_url.to_s %> />
 					</div>
-				<% end %>
-			</p>
-			<p>
-				Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.
-			</p>
-			<br />
-			<p>
-				<div>
-					<input type="text" size="60" readonly="readonly" value = <%= @share_url.to_s %> />
-					<br /><br />
-					Copy and paste the link below to share your card with friends and family.
-				</div>
-			</p>				
+				</p>
+				<br />
+			<% end %>
+			<% if current_player %>
+				<p>
+					Your card must be <b>Public</b> to share with your friends.
+					<%= form_for @player, :remote => true do |f| %>
+						<div style="margin-left:20px;margin-bottom:10px">
+							Private:&nbsp;&nbsp;<%= f.radio_button(:share_card,"false", :class => 'submittable') %>&nbsp;&nbsp;
+							Public:&nbsp;&nbsp;<%= f.radio_button(:share_card,"true", :class => 'submittable') %>&nbsp;&nbsp;
+						</div>
+					<% end %>
+				</p>
+				<p>
+					Note: You can change your share settings any time under <%= link_to "My Account", edit_player_path(@player) %>.
+				</p>
+			<% end %>
 		</div>
 		<h3><a href="#" onClick="window.close();">Done</a></h3>
+	</div>
+	<div id="sidebar-ads" style="padding-top:10px;text-align:center;">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-7407856351737007";
+		/* print_card_sidebat */
+		google_ad_slot = "5304327580";
+		google_ad_width = 300;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
 	</div>
 </div>

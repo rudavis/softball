@@ -29,3 +29,6 @@
 /public/images/psd/*
 *.xlsx
 *.ep
+*.sublime-project
+
+*.sublime-workspace
